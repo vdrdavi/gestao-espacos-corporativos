@@ -5,6 +5,7 @@ import type {
   Metricas,
   Restricao,
   Run,
+  RunDetalhe,
   Sala,
   Setor,
 } from './types'
@@ -12,9 +13,9 @@ import type {
 /**
  * Erro de API com o status e o corpo preservados.
  *
- * O `detail` importa: o 501 de POST /api/runs carrega um objeto explicando
- * qual etapa do motor falta e em que dia ela entra, e a tela de alocacao
- * mostra isso em vez de um "erro inesperado".
+ * O `detail` importa: os 422 de POST /api/runs explicam *por que* a execucao
+ * foi recusada -- sem cenario carregado, ou com pesos que quebram a regra de
+ * dominancia -- e a tela mostra esse texto em vez de "erro inesperado".
  */
 export class ApiError extends Error {
   constructor(
@@ -68,7 +69,8 @@ export const api = {
 
   runs: () => req<Run[]>('/api/runs'),
   gerarAlocacao: (usuario: string) =>
-    req<Run>('/api/runs', { method: 'POST', body: JSON.stringify({ usuario }) }),
+    req<RunDetalhe>('/api/runs', { method: 'POST', body: JSON.stringify({ usuario }) }),
+  run: (id: number) => req<RunDetalhe>(`/api/runs/${id}`),
 
   metricas: () => req<Metricas>('/api/metrics'),
   auditoria: () => req<Intervencao[]>('/api/audit'),

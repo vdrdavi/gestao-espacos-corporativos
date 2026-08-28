@@ -5,7 +5,9 @@ O critério central do projeto não é alocar — é **conseguir justificar a
 alocação**. Quando houver dúvida entre duas opções, escolha a que deixa a
 decisão mais auditável.
 
-Estado: **D1 de 7**. O motor está em stub; `POST /api/runs` responde 501.
+Estado: **D3 de 7**. O motor decide e explica: `POST /api/runs` roda baseline,
+solver, explainer, diagnostics e validador, e grava a execução com a
+justificativa de cada recomendação. As telas de tabela e mapa entram no D4.
 
 ## Comandos
 
@@ -57,6 +59,23 @@ e coluna de banco (`"reuniao"`, não `"reunião"`).
    levanta `EtapaNaoImplementada(etapa, dia)` ou renderiza `<Pendente dia=…>`.
    Nunca um guloso improvisado "só para ter algo na tela" — ele vira dívida no
    dia em que o código real chega, e some do radar porque a tela parece pronta.
+   O mesmo vale para o que já existe: a explicação **admite** quando a sala
+   escolhida não era a mais barata localmente, e o diagnóstico devolve a
+   classificação base quando nenhum relaxamento resolve. Um campo que sempre
+   elogia a própria decisão não é explicabilidade.
+
+5. **Explicar não decide.** `explainer` e `diagnostics` são pós-processamento:
+   recebem uma solução pronta, são chamados por `routers/runs.py` — nunca de
+   dentro de `solver.alocar` — e não mudam sala, turno nem custo. O número que
+   eles mostram é o **custo marginal** (`custo.custo_marginal`), remedido no gate
+   contra `custo.avaliar`. Se a conta exibida puder divergir da que o solver
+   minimizou, a tela deixa de mostrar a razão real da decisão.
+
+6. **O baseline respeita H1–H8.** Ele é ingênuo na *escolha* — primeira sala que
+   couber — nunca na validade. Restrição violada é restrição que não custa nada:
+   um guloso inválido teria custo artificialmente baixo, e o MR-6 (`CP-SAT ≤
+   guloso`) passaria a falhar por construção. `test_ac2_o_baseline_tambem_passa_no_validador`
+   é o que trava isso.
 
 ## Os marcadores D1–D7
 
@@ -64,10 +83,10 @@ e coluna de banco (`"reuniao"`, não `"reunião"`).
 
 | Onde | Forma |
 |---|---|
-| Testes | `@pytest.mark.skip(reason="D2 -- depende do solver")` |
-| Motor | `EtapaNaoImplementada("O solver CP-SAT", "D2")` |
+| Testes | `@pytest.mark.skip(reason="D6 -- exige o motor estavel para medir p95")` |
+| Motor | `EtapaNaoImplementada("A etapa", "D5")` |
 | Front | `<Pendente dia="D4" o="…" />` |
-| Código | comentários `# No D2 o validator entra aqui` |
+| Código | comentários `# No D5 a intervencao entra aqui` |
 
 Ao implementar um dia, **remova o marcador junto com o código** — nunca deixe
 um `skip` órfão apontando para um dia que já passou. Se algo escorregar de dia,

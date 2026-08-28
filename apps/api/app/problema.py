@@ -14,6 +14,7 @@ import json
 from sqlmodel import Session, select
 
 from app.engine.types import EquipeDTO, Pesos, Problema, RestricaoDTO, SalaDTO
+from app.enums import TipoRestricao, TipoSala, Turno
 from app.models import Equipe, Restricao, Sala
 
 
@@ -95,13 +96,15 @@ def montar_problema(
 ) -> Problema:
     snapshot = montar_snapshot(session)
 
+    # O snapshot guarda os enums como string (ele vira JSON e hash de auditoria);
+    # o motor trabalha com os enums, entao a conversao acontece aqui, na ponte.
     salas = tuple(
         SalaDTO(
             id=s["id"],
             codigo=s["codigo"],
             andar=s["andar"],
             capacidade=s["capacidade"],
-            tipo=s["tipo"],
+            tipo=TipoSala(s["tipo"]),
             recursos=frozenset(s["recursos"]),
             acessivel=s["acessivel"],
             disponivel=s["disponivel"],
@@ -115,7 +118,7 @@ def montar_problema(
             nome=e["nome"],
             setor_id=e["setor_id"],
             tamanho=e["tamanho"],
-            turno=e["turno"],
+            turno=Turno(e["turno"]),
             recursos_requeridos=frozenset(e["recursos_requeridos"]),
             exige_acessibilidade=e["exige_acessibilidade"],
             andar_preferido=e["andar_preferido"],
@@ -126,7 +129,7 @@ def montar_problema(
     restricoes = tuple(
         RestricaoDTO(
             id=r["id"],
-            tipo=r["tipo"],
+            tipo=TipoRestricao(r["tipo"]),
             parametros=r["parametros"],
             rigida=r["rigida"],
             peso=r["peso"],

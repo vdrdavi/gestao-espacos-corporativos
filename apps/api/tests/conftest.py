@@ -49,3 +49,22 @@ def cenario_referencia_fixture(session):
     from seed.generate import gerar
 
     return gerar(session, seed=42)
+
+
+@pytest.fixture(name="cenario_referencia_montado")
+def cenario_referencia_montado_fixture():
+    """O `Problema` do predio completo, pronto para o motor.
+
+    Sessao propria (nao a do TestClient) porque os testes metamorficos
+    transformam a entrada em memoria e nunca tocam no banco.
+    """
+    from app.problema import montar_problema
+    from seed.generate import gerar
+
+    engine = create_engine(
+        "sqlite://", connect_args={"check_same_thread": False}, poolclass=StaticPool
+    )
+    SQLModel.metadata.create_all(engine)
+    with Session(engine) as session:
+        gerar(session, seed=42)
+        return montar_problema(session)

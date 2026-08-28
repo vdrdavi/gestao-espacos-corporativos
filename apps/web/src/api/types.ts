@@ -106,18 +106,85 @@ export interface Cenario {
   descricao: string
 }
 
-/** Corpo do 501 devolvido por POST /api/runs enquanto o motor e stub (D1). */
-export interface MotorPendente {
-  mensagem: string
-  etapa: string
-  previsto_para: string
-  pipeline_ate_aqui: {
-    salas: number
-    equipes: number
-    restricoes: number
-    capacidade_total: number
-    hash_entrada: string
-    engine_version: string
-    pesos: Record<string, number>
-  }
+/** Uma parcela do custo, com o numero e a frase que o explica. */
+export interface Termo {
+  nome: string
+  valor: number
+  detalhe: string
+}
+
+/** Uma sala descartada, com o motivo pelo qual nao foi ela. */
+export interface Alternativa {
+  sala_id: number
+  codigo: string
+  andar: number
+  capacidade: number
+  custo: number
+  /** Quanto esta sala custaria a mais (ou a menos) que a recomendada. */
+  delta: number
+  /** `false` quando a sala estava ocupada ou bloqueada por H2/H7/proximidade. */
+  disponivel: boolean
+  por_que_nao: string
+}
+
+/**
+ * O porque de uma recomendacao (secao 9 do enunciado).
+ *
+ * Gravado junto do Assignment, nao recalculado na leitura: o registro e
+ * append-only e a entrada muda entre execucoes, entao recalcular mostraria a
+ * razao de hoje para uma decisao tomada ontem.
+ */
+export interface Explicacao {
+  equipe: { id: number; nome: string; tamanho: number; turno: Turno; prioridade: number }
+  sala: { id: number; codigo: string; andar: number; capacidade: number }
+  ocupacao_pct: number
+  recursos_exigidos: string[]
+  recursos_atendidos: boolean
+  /** `null` quando a equipe nao exige acessibilidade. */
+  acessibilidade_atendida: boolean | null
+  andar_preferido: number | null
+  /** `null` quando a equipe nao declarou preferencia. */
+  andar_preferido_atendido: boolean | null
+  andares_permitidos: number[]
+  termos: Termo[]
+  custo_total: number
+  /** Conta a sala escolhida, por isso nunca e zero. */
+  alternativas_avaliadas: number
+  comparacao: { tipo: 'melhor_local' | 'trade_off_global' | 'sem_alternativa'; detalhe: string }
+  resumo: string
+}
+
+export interface Assignment {
+  id: number
+  equipe_id: number
+  sala_id: number
+  turno: Turno
+  custo: number
+  /** Decomposicao termo a termo. Vazia so em execucoes gravadas antes do D3. */
+  explicacao: Explicacao | Record<string, never>
+  /** As salas descartadas, da mais barata para a mais cara. */
+  alternativas: Alternativa[]
+}
+
+export type CodigoMotivo =
+  | 'SEM_SALA_COMPATIVEL'
+  | 'RECURSO_INDISPONIVEL'
+  | 'ACESSIBILIDADE_INDISPONIVEL'
+  | 'ANDAR_SEM_VAGA'
+  | 'CONFLITO_RESTRICOES'
+  | 'CAPACIDADE_ESGOTADA'
+
+export interface NaoAlocada {
+  id: number
+  equipe_id: number
+  codigo_motivo: CodigoMotivo
+  causa: string
+  encaminhamento: string
+}
+
+/** Corpo de POST /api/runs e de GET /api/runs/{id}. */
+export interface RunDetalhe extends Run {
+  snapshot_entrada: Record<string, unknown>
+  alocacoes: Assignment[]
+  nao_alocadas: NaoAlocada[]
 }

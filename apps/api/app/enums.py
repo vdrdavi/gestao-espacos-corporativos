@@ -109,8 +109,10 @@ class CodigoMotivo(StrEnum):
     CAPACIDADE_ESGOTADA = "CAPACIDADE_ESGOTADA"
 
 
-#: Encaminhamento padrao por motivo. O diagnostics.py (D3) refina com os
-#: numeros do caso concreto; isto e o texto-base exigido pelo AC-4.
+#: Encaminhamento padrao por motivo. O diagnostics.py refina com os numeros do
+#: caso concreto ("rever a exigencia de recursos desta equipe libera a sala
+#: 803"); isto e o texto-base exigido pelo AC-4, e o que fica quando o
+#: diagnostico por relaxamento nao chega a uma conclusao.
 ENCAMINHAMENTO_PADRAO: dict[CodigoMotivo, str] = {
     CodigoMotivo.SEM_SALA_COMPATIVEL: (
         "Dividir a equipe em turmas menores, liberar uma sala hoje marcada como "

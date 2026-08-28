@@ -99,28 +99,112 @@ def test_cenario_inexistente_lista_os_disponiveis(client):
 
 
 # --------------------------------------------------------------------------
-# Motor (stub no D1)
+# Motor
 # --------------------------------------------------------------------------
 
 
-def test_gerar_alocacao_responde_501_com_o_pipeline_ate_o_motor(client, cenario_referencia):
-    """O D1 entrega tudo ate a fronteira do solver.
+def test_gerar_alocacao_persiste_uma_execucao_auditavel(client, cenario_referencia):
+    """O caminho completo: montar, resolver, validar e registrar.
 
-    O 501 nao e um erro generico: ele prova que a montagem do problema, o
-    snapshot e o hash de entrada ja funcionam, e diz em que dia a etapa que
-    falta entra.
+    Verifica o contrato da rota, nao a qualidade da solucao -- essa e a tarefa
+    do gate (tests/test_acceptance.py). Aqui interessa que a execucao vire um
+    registro capaz de responder as perguntas da secao 12.
     """
     resposta = client.post("/api/runs", json={"usuario": "coordenador-geral"})
-    assert resposta.status_code == 501
+    assert resposta.status_code == 201
 
-    detalhe = resposta.json()["detail"]
-    assert detalhe["previsto_para"] == "D2"
+    corpo = resposta.json()
+    assert corpo["status"] in ("OPTIMAL", "FEASIBLE")
+    assert corpo["engine_version"] == "allocation-engine-v1"
+    assert len(corpo["hash_entrada"]) == 64, "sha256 em hexadecimal"
+    assert corpo["pesos"]["W_NA"] == 10_000
+    assert corpo["metricas"]["violacoes"] == 0
+    assert corpo["metricas"]["equipes_total"] == 87
+    assert corpo["metricas_baseline"], "a coluna 'Antes' da comparacao tem que vir junto"
 
-    pipeline = detalhe["pipeline_ate_aqui"]
-    assert pipeline["salas"] == 108
-    assert pipeline["equipes"] == 87
-    assert len(pipeline["hash_entrada"]) == 64, "sha256 em hexadecimal"
-    assert pipeline["pesos"]["W_NA"] == 10_000
+    alocadas = corpo["metricas"]["equipes_alocadas"]
+    assert len(corpo["alocacoes"]) == alocadas
+    assert len(corpo["nao_alocadas"]) == 87 - alocadas
+
+
+def test_a_recomendacao_gravada_carrega_a_propria_justificativa(client, cenario_referencia):
+    """AC-3 pelo contrato da rota: a explicacao sai persistida, nao calculada na leitura.
+
+    O registro e append-only e a entrada muda entre execucoes. Se a tela
+    recalculasse a justificativa ao abrir a execucao, ela mostraria a razao de
+    *hoje* para uma decisao tomada ontem -- exatamente o que a auditoria da secao
+    12 existe para impedir.
+    """
+    corpo = client.post("/api/runs", json={"usuario": "coordenador-geral"}).json()
+    alocacao = corpo["alocacoes"][0]
+
+    assert alocacao["explicacao"]["resumo"]
+    assert alocacao["explicacao"]["termos"], "a conta tem que vir termo a termo"
+    assert alocacao["explicacao"]["comparacao"]["detalhe"]
+    assert alocacao["explicacao"]["alternativas_avaliadas"] >= 1
+
+    # Reler a execucao devolve os mesmos bytes: a justificativa esta no banco.
+    relido = client.get(f"/api/runs/{corpo['id']}").json()
+    assert relido["alocacoes"] == corpo["alocacoes"]
+
+    # A separacao dos tempos deixa auditavel quanto custou explicar.
+    assert corpo["metricas"]["duracao_solver_ms"] >= 0
+    assert corpo["metricas"]["duracao_justificativa_ms"] >= 0
+
+
+def test_o_diagnostico_da_equipe_sem_sala_aponta_o_que_mudar(client):
+    """AC-4 pelo contrato da rota.
+
+    O cenario tem salas grandes de sobra e a causa real e a bancada tecnica que
+    elas nao tem. O encaminhamento gravado tem que nomear a sala que o
+    relaxamento abriria -- "recurso indisponivel" sozinho nao e acionavel.
+    """
+    client.post("/api/cenarios/estresse-recurso-escasso/carregar")
+    corpo = client.post("/api/runs", json={"usuario": "coordenador-geral"}).json()
+
+    assert corpo["nao_alocadas"]
+    for rejeitada in corpo["nao_alocadas"]:
+        assert rejeitada["codigo_motivo"] == "RECURSO_INDISPONIVEL"
+        assert "caberia na sala" in rejeitada["causa"]
+        assert "Concretamente" in rejeitada["encaminhamento"]
+
+
+def test_execucao_gravada_pode_ser_reconsultada(client, cenario_referencia):
+    """Governanca: o registro tem que continuar la depois da resposta."""
+    run_id = client.post("/api/runs", json={"usuario": "coordenador-geral"}).json()["id"]
+
+    detalhe = client.get(f"/api/runs/{run_id}").json()
+    assert detalhe["usuario"] == "coordenador-geral"
+    assert detalhe["snapshot_entrada"]["salas"], "o snapshot responde 'com quais dados'"
+    assert client.get("/api/runs").json()[0]["id"] == run_id
+
+
+def test_toda_equipe_sem_sala_aparece_com_motivo(client):
+    """Secao 11: o sistema mostra o que nao conseguiu resolver.
+
+    Usa o cenario onde a resposta certa e conhecida de antemao -- equipe de 92
+    pessoas contra uma sala maxima de 80.
+    """
+    client.post("/api/cenarios/estresse-superdimensionada/carregar")
+    corpo = client.post("/api/runs", json={"usuario": "coordenador-geral"}).json()
+
+    assert len(corpo["nao_alocadas"]) == 1
+    rejeitada = corpo["nao_alocadas"][0]
+    assert rejeitada["codigo_motivo"] == "SEM_SALA_COMPATIVEL"
+    assert "92" in rejeitada["causa"] and "80" in rejeitada["causa"]
+    assert rejeitada["encaminhamento"]
+
+
+def test_metricas_do_motor_alimentam_o_painel(client, cenario_referencia):
+    """Observabilidade (secao 13): o painel agrega sobre as execucoes."""
+    client.post("/api/runs", json={"usuario": "coordenador-geral"})
+
+    painel = client.get("/api/metrics").json()
+    assert painel["execucoes_total"] == 1
+    assert painel["execucoes_com_erro"] == 0
+    assert painel["duracao_p95_ms"] is not None
+    assert painel["taxa_alocacao_pct"] > 0
+    assert painel["violacoes"] == 0
 
 
 def test_gerar_alocacao_sem_equipes_e_erro_de_entrada(client):
@@ -184,3 +268,54 @@ def test_registros_sao_append_only(client, metodo, rota):
     Intervencao.
     """
     assert getattr(client, metodo)(rota).status_code == 405
+
+
+# --------------------------------------------------------------------------
+# Os dois caminhos de falha do motor
+# --------------------------------------------------------------------------
+
+
+def test_execucao_que_estoura_vira_registro_de_erro(client, cenario_referencia, monkeypatch):
+    """Uma execucao que falhou tambem e uma execucao.
+
+    Sem este registro o painel de observabilidade ficaria cego justamente para o
+    que mais importa saber depois que o sistema entra em producao.
+    """
+    from app.engine import solver
+
+    def explode(*_args, **_kwargs):
+        raise RuntimeError("solver indisponivel")
+
+    monkeypatch.setattr(solver, "alocar", explode)
+
+    assert client.post("/api/runs", json={"usuario": "coordenador-geral"}).status_code == 500
+
+    registrada = client.get("/api/runs").json()[0]
+    assert registrada["status"] == "ERRO"
+    assert "solver indisponivel" in registrada["erro"]
+    assert client.get("/api/metrics").json()["execucoes_com_erro"] == 1
+
+
+def test_solucao_reprovada_pelo_validador_e_marcada_como_erro(
+    client, cenario_referencia, monkeypatch
+):
+    """O validador e independente do solver para poder discordar dele.
+
+    Quando discorda, a execucao inteira fica marcada -- e as alocacoes produzidas
+    continuam gravadas, porque sem elas ninguem consegue auditar *qual* erro o
+    motor cometeu.
+    """
+    from app.engine import validator
+
+    monkeypatch.setattr(
+        validator,
+        "violacoes",
+        lambda *_: [{"regra": "H1", "equipe_id": 1, "sala_id": 1, "detalhe": "estourou a sala"}],
+    )
+
+    corpo = client.post("/api/runs", json={"usuario": "coordenador-geral"}).json()
+
+    assert corpo["status"] == "ERRO"
+    assert "H1" in corpo["erro"] and "estourou a sala" in corpo["erro"]
+    assert corpo["metricas"]["violacoes"] == 1
+    assert corpo["alocacoes"], "as alocacoes do motor tem que ficar disponiveis para auditoria"

@@ -55,8 +55,8 @@ export function Erro({ erro }: { erro: Error }) {
  * Marcador de tela ainda nao construida.
  *
  * Deliberado: e melhor a tela dizer em que dia ela fica pronta do que exibir
- * numeros falsos que ninguem sabe se sao reais. O mesmo criterio do 501 em
- * POST /api/runs.
+ * numeros falsos que ninguem sabe se sao reais. E o mesmo criterio que o motor
+ * aplica a si mesmo com `EtapaNaoImplementada`: o que nao existe se anuncia.
  */
 export function Pendente({ dia, o }: { dia: string; o: string }) {
   return (
