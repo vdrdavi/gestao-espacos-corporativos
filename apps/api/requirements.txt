@@ -1,0 +1,12 @@
+# Runtime da API.
+# Versões fixadas: o CI roda no mesmo Python 3.14 da máquina de desenvolvimento,
+# então uma resolução diferente aqui e lá é bug, não conveniência.
+fastapi==0.141.1
+uvicorn==0.52.4
+sqlmodel==0.0.39
+pydantic==2.13.5
+
+# O motor só é implementado no D2, mas a dependência entra no D1 de propósito:
+# se ortools não instalar no Python 3.14, isso tem que quebrar o CI hoje e não
+# na manhã em que o solver for escrito. (ortools 9.15 publica wheel cp314.)
+ortools==9.15.6755

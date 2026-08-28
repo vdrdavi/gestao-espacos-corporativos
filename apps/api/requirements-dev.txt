@@ -1,0 +1,6 @@
+-r requirements.txt
+
+pytest==9.1.1
+httpx==0.28.1          # exigido pelo TestClient do FastAPI
+hypothesis==6.165.10   # gera os cenários das relações metamórficas (D6)
+ruff==0.16.5

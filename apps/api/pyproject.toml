@@ -1,0 +1,27 @@
+[project]
+name = "gestao-espacos-api"
+version = "0.1.0"
+description = "API do Sistema Inteligente de Gestao e Otimizacao de Espacos Corporativos"
+requires-python = ">=3.13"
+
+[tool.ruff]
+line-length = 100
+target-version = "py313"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM"]
+ignore = [
+    "B008",  # Depends() em default de argumento e o idioma do FastAPI
+]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*" = ["E501"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+markers = [
+    "slow: execucoes longas do motor, excluidas do job rapido do CI",
+    "acceptance: criterios de aceitacao AC-1..AC-8",
+    "metamorphic: relacoes metamorficas MR-1..MR-6",
+]

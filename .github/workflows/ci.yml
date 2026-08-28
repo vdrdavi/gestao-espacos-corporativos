@@ -1,0 +1,109 @@
+# Pipeline minimo de integracao continua.
+#
+# Nasceu no D1, com um teste trivial, antes de qualquer feature -- de proposito.
+# Um pipeline montado na sexta-feira e um remendo; este e o mecanismo que impede
+# que uma mudanca chegue ao cliente sem verificacao (secao 16 do enunciado).
+#
+# Tres jobs: `api` e `web` verificam o codigo; `gate` roda os criterios de
+# aceitacao e as relacoes metamorficas separadamente, para que o relatorio da
+# demo mostre os criterios pelo nome.
+
+name: CI
+
+on:
+  push:
+  pull_request:
+
+env:
+  PYTHON_VERSION: '3.14'   # mesma versao das maquinas de desenvolvimento
+  NODE_VERSION: '24'
+
+jobs:
+  api:
+    name: API (lint + testes)
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: apps/api
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+          cache: pip
+          cache-dependency-path: apps/api/requirements-dev.txt
+
+      - name: Instalar dependencias
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements-dev.txt
+
+      - name: Lint
+        run: ruff check .
+
+      - name: Testes
+        run: pytest -q -m "not slow"
+
+  web:
+    name: Front (typecheck + testes + build)
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: apps/web
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: npm
+          cache-dependency-path: apps/web/package-lock.json
+
+      - name: Instalar dependencias
+        run: npm ci
+
+      - name: Typecheck
+        run: npm run typecheck
+
+      - name: Testes
+        run: npm run test
+
+      - name: Build
+        run: npx vite build
+
+  gate:
+    name: Gate (criterios de aceitacao)
+    needs: api
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: apps/api
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+          cache: pip
+          cache-dependency-path: apps/api/requirements-dev.txt
+
+      - name: Instalar dependencias
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements-dev.txt
+
+      # Os criterios ainda nao implementados aparecem como *skipped*, com o dia
+      # em que entram. Um gate que passa por vacuidade seria pior que nenhum.
+      - name: Criterios de aceitacao (AC-1..AC-8)
+        run: pytest tests/test_acceptance.py -v --junitxml=relatorio-aceitacao.xml
+
+      - name: Relacoes metamorficas (MR-1..MR-6)
+        run: pytest tests/test_metamorphic.py -v --junitxml=relatorio-metamorficos.xml
+
+      - name: Publicar relatorios
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: relatorios-do-gate
+          path: apps/api/relatorio-*.xml
