@@ -1,0 +1,834 @@
+{
+  "id": 1,
+  "criado_em": "2026-08-28T23:50:28.286837",
+  "usuario": "coordenador-geral",
+  "engine_version": "allocation-engine-v1",
+  "seed": 42,
+  "pesos": {
+    "W_NA": 10000,
+    "W_OC": 1,
+    "W_PR": 50,
+    "W_AP": 20,
+    "W_RS": 200
+  },
+  "hash_entrada": "e3e0ab6d91b885bea813ab1c4c93cb901879fa4605bd6ace082ad09dee472f88",
+  "duracao_ms": 708,
+  "status": "OPTIMAL",
+  "metricas": {
+    "equipes_total": 87,
+    "equipes_alocadas": 84,
+    "equipes_nao_alocadas": 3,
+    "pessoas_alocadas": 3726,
+    "pessoas_nao_alocadas": 187,
+    "assentos_ociosos": 563,
+    "ocupacao_media_pct": 86.9,
+    "salas_total": 103,
+    "salas_ocupadas": 74,
+    "salas_livres": 29,
+    "utilizacao_salas_pct": 71.8,
+    "capacidade_total": 4585,
+    "custo": 70763,
+    "violacoes": 0,
+    "duracao_solver_ms": 653,
+    "duracao_justificativa_ms": 55
+  },
+  "metricas_baseline": {
+    "equipes_total": 87,
+    "equipes_alocadas": 79,
+    "equipes_nao_alocadas": 8,
+    "pessoas_alocadas": 3250,
+    "pessoas_nao_alocadas": 663,
+    "assentos_ociosos": 1215,
+    "ocupacao_media_pct": 72.8,
+    "salas_total": 103,
+    "salas_ocupadas": 66,
+    "salas_livres": 37,
+    "utilizacao_salas_pct": 64.1,
+    "capacidade_total": 4585,
+    "custo": 221965,
+    "violacoes": 0
+  },
+  "erro": null,
+  "snapshot_entrada": {},
+  "alocacoes": [
+    {
+      "id": 1,
+      "equipe_id": 1,
+      "sala_id": 49,
+      "turno": "integral",
+      "custo": 1,
+      "explicacao": {},
+      "alternativas": []
+    },
+    {
+      "id": 2,
+      "equipe_id": 2,
+      "sala_id": 56,
+      "turno": "tarde",
+      "custo": 8,
+      "explicacao": {},
+      "alternativas": []
+    },
+    {
+      "id": 3,
+      "equipe_id": 3,
+      "sala_id": 21,
+      "turno": "manha",
+      "custo": 21,
+      "explicacao": {},
+      "alternativas": []
+    },
+    {
+      "id": 4,
+      "equipe_id": 4,
+      "sala_id": 100,
+      "turno": "tarde",
+      "custo": 20,
+      "explicacao": {},
+      "alternativas": []
+    },
+    {
+      "id": 5,
+      "equipe_id": 5,
+      "sala_id": 57,
+      "turno": "integral",
+      "custo": 9,
+      "explicacao": {},
+      "alternativas": []
+    },
+    {
+      "id": 6,
+      "equipe_id": 6,
+      "sala_id": 92,
+      "turno": "manha",
+      "custo": 7,
+      "explicacao": {},
+      "alternativas": []
+    },
+    {
+      "id": 7,
+      "equipe_id": 7,
+      "sala_id": 60,
+      "turno": "integral",
+      "custo": 19,
+      "explicacao": {},
+      "alternativas": []
+    },
+    {
+      "id": 8,
+      "equipe_id": 8,
+      "sala_id": 17,
+      "turno": "integral",
+      "custo": 1,
+      "explicacao": {},
+      "alternativas": []
+    },
+    {
+      "id": 9,
+      "equipe_id": 9,
+      "sala_id": 28,
+      "turno": "manha",
+      "custo": 2,
+      "explicacao": {},
+      "alternativas": []
+    },
+    {
+      "id": 10,
+      "equipe_id": 10,
+      "sala_id": 71,
+      "turno": "integral",
+      "custo": 0,
+      "explicacao": {},
+      "alternativas": []
+    },
+    {
+      "id": 11,
+      "equipe_id": 11,
+      "sala_id": 62,
+      "turno": "manha",
+      "custo": 3,
+      "explicacao": {},
+      "alternativas": []
+    },
+    {
+      "id": 12,
+      "equipe_id": 12,
+      "sala_id": 83,
+      "turno": "integral",
+      "custo": 20,
+      "explicacao": {},
+      "alternativas": []
+    },
+    {
+      "id": 13,
+      "equipe_id": 13,
+      "sala_id": 22,
+      "turno": "integral",
+      "custo": 0,
+      "explicacao": {},
+      "alternativas": []
+    },
+    {
+      "id": 14,
+      "equipe_id": 14,
+      "sala_id": 108,
+      "turno": "tarde",
+      "custo": 85,
+      "explicacao": {},
+      "alternativas": []
+    },
+    {
+      "id": 15,
+      "equipe_id": 15,
+      "sala_id": 46,
+      "turno": "tarde",
+      "custo": 5,
+      "explicacao": {},
+      "alternativas": []
+    },
+    {
+      "id": 16,
+      "equipe_id": 16,
+      "sala_id": 93,
+      "turno": "integral",
+      "custo": 1,
+      "explicacao": {},
+      "alternativas": []
+    },
+    {
+      "id": 17,
+      "equipe_id": 17,
+      "sala_id": 96,
+      "turno": "tarde",
+      "custo": 12,
+      "explicacao": {},
+      "alternativas": []
+    },
+    {
+      "id": 18,
+      "equipe_id": 18,
+      "sala_id": 38,
+      "turno": "integral",
+      "custo": 3,
+      "explicacao": {},
+      "alternativas": []
+    },
+    {
+      "id": 19,
+      "equipe_id": 19,
+      "sala_id": 63,
+      "turno": "integral",
+      "custo": 1,
+      "explicacao": {},
+      "alternativas": []
+    },
+    {
+      "id": 20,
+      "equipe_id": 20,
+      "sala_id": 108,
+      "turno": "manha",
+      "custo": 26,
+      "explicacao": {},
+      "alternativas": []
+    },
+    {
+      "id": 21,
+      "equipe_id": 21,
+      "sala_id": 61,
+      "turno": "integral",
+      "custo": 1,
+      "explicacao": {},
+      "alternativas": []
+    },
+    {
+      "id": 22,
+      "equipe_id": 22,
+      "sala_id": 24,
+      "turno": "integral",
+      "custo": 22,
+      "explicacao": {},
+      "alternativas": []
+    },
+    {
+      "id": 23,
+      "equipe_id": 23,
+      "sala_id": 107,
+      "turno": "integral",
+      "custo": 19,
+      "explicacao": {},
+      "alternativas": []
+    },
+    {
+      "id": 24,
+      "equipe_id": 24,
+      "sala_id": 29,
+      "turno": "integral",
+      "custo": 0,
+      "explicacao": {},
+      "alternativas": []
+    },
+    {
+      "id": 25,
+      "equipe_id": 25,
+      "sala_id": 73,
+      "turno": "integral",
+      "custo": 5,
+      "explicacao": {},
+      "alternativas": []
+    },
+    {
+      "id": 26,
+      "equipe_id": 26,
+      "sala_id": 16,
+      "turno": "integral",
+      "custo": 0,
+      "explicacao": {},
+      "alternativas": []
+    },
+    {
+      "id": 27,
+      "equipe_id": 27,
+      "sala_id": 68,
+      "turno": "integral",
+      "custo": 0,
+      "explicacao": {},
+      "alternativas": []
+    },
+    {
+      "id": 28,
+      "equipe_id": 28,
+      "sala_id": 32,
+      "turno": "integral",
+      "custo": 1,
+      "explicacao": {},
+      "alternativas": []
+    },
+    {
+      "id": 29,
+      "equipe_id": 29,
+      "sala_id": 11,
+      "turno": "manha",
+      "custo": 9,
+      "explicacao": {},
+      "alternativas": []
+    },
+    {
+      "id": 30,
+      "equipe_id": 31,
+      "sala_id": 72,
+      "turno": "integral",
+      "custo": 25,
+      "explicacao": {},
+      "alternativas": []
+    },
+    {
+      "id": 31,
+      "equipe_id": 32,
+      "sala_id": 8,
+      "turno": "manha",
+      "custo": 1,
+      "explicacao": {},
+      "alternativas": []
+    },
+    {
+      "id": 32,
+      "equipe_id": 33,
+      "sala_id": 8,
+      "turno": "tarde",
+      "custo": 1,
+      "explicacao": {},
+      "alternativas": []
+    },
+    {
+      "id": 33,
+      "equipe_id": 34,
+      "sala_id": 10,
+      "turno": "tarde",
+      "custo": 0,
+      "explicacao": {},
+      "alternativas": []
+    },
+    {
+      "id": 34,
+      "equipe_id": 35,
+      "sala_id": 43,
+      "turno": "tarde",
+      "custo": 4,
+      "explicacao": {},
+      "alternativas": []
+    },
+    {
+      "id": 35,
+      "equipe_id": 36,
+      "sala_id": 95,
+      "turno": "integral",
+      "custo": 27,
+      "explicacao": {},
+      "alternativas": []
+    },
+    {
+      "id": 36,
+      "equipe_id": 37,
+      "sala_id": 59,
+      "turno": "integral",
+      "custo": 0,
+      "explicacao": {},
+      "alternativas": []
+    },
+    {
+      "id": 37,
+      "equipe_id": 38,
+      "sala_id": 26,
+      "turno": "integral",
+      "custo": 1,
+      "explicacao": {},
+      "alternativas": []
+    },
+    {
+      "id": 38,
+      "equipe_id": 39,
+      "sala_id": 33,
+      "turno": "integral",
+      "custo": 29,
+      "explicacao": {},
+      "alternativas": []
+    },
+    {
+      "id": 39,
+      "equipe_id": 41,
+      "sala_id": 85,
+      "turno": "integral",
+      "custo": 1,
+      "explicacao": {},
+      "alternativas": []
+    },
+    {
+      "id": 40,
+      "equipe_id": 42,
+      "sala_id": 74,
+      "turno": "integral",
+      "custo": 3,
+      "explicacao": {},
+      "alternativas": []
+    },
+    {
+      "id": 41,
+      "equipe_id": 43,
+      "sala_id": 58,
+      "turno": "integral",
+      "custo": 7,
+      "explicacao": {},
+      "alternativas": []
+    },
+    {
+      "id": 42,
+      "equipe_id": 45,
+      "sala_id": 87,
+      "turno": "integral",
+      "custo": 0,
+      "explicacao": {},
+      "alternativas": []
+    },
+    {
+      "id": 43,
+      "equipe_id": 46,
+      "sala_id": 50,
+      "turno": "manha",
+      "custo": 5,
+      "explicacao": {},
+      "alternativas": []
+    },
+    {
+      "id": 44,
+      "equipe_id": 47,
+      "sala_id": 99,
+      "turno": "manha",
+      "custo": 0,
+      "explicacao": {},
+      "alternativas": []
+    },
+    {
+      "id": 45,
+      "equipe_id": 48,
+      "sala_id": 34,
+      "turno": "tarde",
+      "custo": 4,
+      "explicacao": {},
+      "alternativas": []
+    },
+    {
+      "id": 46,
+      "equipe_id": 49,
+      "sala_id": 36,
+      "turno": "integral",
+      "custo": 8,
+      "explicacao": {},
+      "alternativas": []
+    },
+    {
+      "id": 47,
+      "equipe_id": 50,
+      "sala_id": 14,
+      "turno": "integral",
+      "custo": 2,
+      "explicacao": {},
+      "alternativas": []
+    },
+    {
+      "id": 48,
+      "equipe_id": 51,
+      "sala_id": 44,
+      "turno": "manha",
+      "custo": 3,
+      "explicacao": {},
+      "alternativas": []
+    },
+    {
+      "id": 49,
+      "equipe_id": 52,
+      "sala_id": 50,
+      "turno": "tarde",
+      "custo": 9,
+      "explicacao": {},
+      "alternativas": []
+    },
+    {
+      "id": 50,
+      "equipe_id": 53,
+      "sala_id": 106,
+      "turno": "integral",
+      "custo": 3,
+      "explicacao": {},
+      "alternativas": []
+    },
+    {
+      "id": 51,
+      "equipe_id": 54,
+      "sala_id": 3,
+      "turno": "manha",
+      "custo": 0,
+      "explicacao": {},
+      "alternativas": []
+    },
+    {
+      "id": 52,
+      "equipe_id": 55,
+      "sala_id": 18,
+      "turno": "integral",
+      "custo": 0,
+      "explicacao": {},
+      "alternativas": []
+    },
+    {
+      "id": 53,
+      "equipe_id": 56,
+      "sala_id": 82,
+      "turno": "integral",
+      "custo": 20,
+      "explicacao": {},
+      "alternativas": []
+    },
+    {
+      "id": 54,
+      "equipe_id": 57,
+      "sala_id": 20,
+      "turno": "integral",
+      "custo": 0,
+      "explicacao": {},
+      "alternativas": []
+    },
+    {
+      "id": 55,
+      "equipe_id": 58,
+      "sala_id": 44,
+      "turno": "tarde",
+      "custo": 0,
+      "explicacao": {},
+      "alternativas": []
+    },
+    {
+      "id": 56,
+      "equipe_id": 59,
+      "sala_id": 27,
+      "turno": "integral",
+      "custo": 5,
+      "explicacao": {},
+      "alternativas": []
+    },
+    {
+      "id": 57,
+      "equipe_id": 60,
+      "sala_id": 89,
+      "turno": "manha",
+      "custo": 0,
+      "explicacao": {},
+      "alternativas": []
+    },
+    {
+      "id": 58,
+      "equipe_id": 61,
+      "sala_id": 28,
+      "turno": "tarde",
+      "custo": 2,
+      "explicacao": {},
+      "alternativas": []
+    },
+    {
+      "id": 59,
+      "equipe_id": 62,
+      "sala_id": 84,
+      "turno": "integral",
+      "custo": 26,
+      "explicacao": {},
+      "alternativas": []
+    },
+    {
+      "id": 60,
+      "equipe_id": 63,
+      "sala_id": 13,
+      "turno": "integral",
+      "custo": 1,
+      "explicacao": {},
+      "alternativas": []
+    },
+    {
+      "id": 61,
+      "equipe_id": 64,
+      "sala_id": 96,
+      "turno": "manha",
+      "custo": 36,
+      "explicacao": {},
+      "alternativas": []
+    },
+    {
+      "id": 62,
+      "equipe_id": 65,
+      "sala_id": 105,
+      "turno": "integral",
+      "custo": 15,
+      "explicacao": {},
+      "alternativas": []
+    },
+    {
+      "id": 63,
+      "equipe_id": 66,
+      "sala_id": 35,
+      "turno": "integral",
+      "custo": 1,
+      "explicacao": {},
+      "alternativas": []
+    },
+    {
+      "id": 64,
+      "equipe_id": 67,
+      "sala_id": 47,
+      "turno": "integral",
+      "custo": 21,
+      "explicacao": {},
+      "alternativas": []
+    },
+    {
+      "id": 65,
+      "equipe_id": 68,
+      "sala_id": 86,
+      "turno": "integral",
+      "custo": 0,
+      "explicacao": {},
+      "alternativas": []
+    },
+    {
+      "id": 66,
+      "equipe_id": 69,
+      "sala_id": 94,
+      "turno": "integral",
+      "custo": 7,
+      "explicacao": {},
+      "alternativas": []
+    },
+    {
+      "id": 67,
+      "equipe_id": 70,
+      "sala_id": 100,
+      "turno": "manha",
+      "custo": 1,
+      "explicacao": {},
+      "alternativas": []
+    },
+    {
+      "id": 68,
+      "equipe_id": 71,
+      "sala_id": 104,
+      "turno": "tarde",
+      "custo": 0,
+      "explicacao": {},
+      "alternativas": []
+    },
+    {
+      "id": 69,
+      "equipe_id": 72,
+      "sala_id": 51,
+      "turno": "tarde",
+      "custo": 0,
+      "explicacao": {},
+      "alternativas": []
+    },
+    {
+      "id": 70,
+      "equipe_id": 73,
+      "sala_id": 45,
+      "turno": "integral",
+      "custo": 27,
+      "explicacao": {},
+      "alternativas": []
+    },
+    {
+      "id": 71,
+      "equipe_id": 74,
+      "sala_id": 97,
+      "turno": "integral",
+      "custo": 1,
+      "explicacao": {},
+      "alternativas": []
+    },
+    {
+      "id": 72,
+      "equipe_id": 75,
+      "sala_id": 51,
+      "turno": "manha",
+      "custo": 1,
+      "explicacao": {},
+      "alternativas": []
+    },
+    {
+      "id": 73,
+      "equipe_id": 76,
+      "sala_id": 104,
+      "turno": "manha",
+      "custo": 2,
+      "explicacao": {},
+      "alternativas": []
+    },
+    {
+      "id": 74,
+      "equipe_id": 77,
+      "sala_id": 55,
+      "turno": "integral",
+      "custo": 0,
+      "explicacao": {},
+      "alternativas": []
+    },
+    {
+      "id": 75,
+      "equipe_id": 78,
+      "sala_id": 79,
+      "turno": "tarde",
+      "custo": 6,
+      "explicacao": {},
+      "alternativas": []
+    },
+    {
+      "id": 76,
+      "equipe_id": 79,
+      "sala_id": 11,
+      "turno": "tarde",
+      "custo": 10,
+      "explicacao": {},
+      "alternativas": []
+    },
+    {
+      "id": 77,
+      "equipe_id": 80,
+      "sala_id": 12,
+      "turno": "integral",
+      "custo": 66,
+      "explicacao": {},
+      "alternativas": []
+    },
+    {
+      "id": 78,
+      "equipe_id": 81,
+      "sala_id": 41,
+      "turno": "manha",
+      "custo": 21,
+      "explicacao": {},
+      "alternativas": []
+    },
+    {
+      "id": 79,
+      "equipe_id": 82,
+      "sala_id": 81,
+      "turno": "integral",
+      "custo": 14,
+      "explicacao": {},
+      "alternativas": []
+    },
+    {
+      "id": 80,
+      "equipe_id": 83,
+      "sala_id": 1,
+      "turno": "integral",
+      "custo": 22,
+      "explicacao": {},
+      "alternativas": []
+    },
+    {
+      "id": 81,
+      "equipe_id": 84,
+      "sala_id": 48,
+      "turno": "integral",
+      "custo": 20,
+      "explicacao": {},
+      "alternativas": []
+    },
+    {
+      "id": 82,
+      "equipe_id": 85,
+      "sala_id": 40,
+      "turno": "tarde",
+      "custo": 0,
+      "explicacao": {},
+      "alternativas": []
+    },
+    {
+      "id": 83,
+      "equipe_id": 86,
+      "sala_id": 69,
+      "turno": "integral",
+      "custo": 2,
+      "explicacao": {},
+      "alternativas": []
+    },
+    {
+      "id": 84,
+      "equipe_id": 87,
+      "sala_id": 5,
+      "turno": "manha",
+      "custo": 2,
+      "explicacao": {},
+      "alternativas": []
+    }
+  ],
+  "nao_alocadas": [
+    {
+      "id": 1,
+      "equipe_id": 30,
+      "codigo_motivo": "RECURSO_INDISPONIVEL",
+      "causa": "Sem a exigencia de recursos, a equipe (54 pessoas) caberia na sala 409 do 4o andar, que comporta 59 -- e sem tirar nenhuma outra equipe do lugar. E a unica regra que, sozinha, resolve este caso.",
+      "encaminhamento": "Instalar o recurso exigido em uma sala compativel ou revisar se ele e mesmo obrigatorio para esta equipe. Concretamente: rever a exigencia de recursos desta equipe libera a sala 409."
+    },
+    {
+      "id": 2,
+      "equipe_id": 40,
+      "codigo_motivo": "RECURSO_INDISPONIVEL",
+      "causa": "Sem a exigencia de recursos, a equipe (38 pessoas) caberia na sala 106 do 1o andar, que comporta 39 -- e sem tirar nenhuma outra equipe do lugar. E a unica regra que, sozinha, resolve este caso.",
+      "encaminhamento": "Instalar o recurso exigido em uma sala compativel ou revisar se ele e mesmo obrigatorio para esta equipe. Concretamente: rever a exigencia de recursos desta equipe libera a sala 106."
+    },
+    {
+      "id": 3,
+      "equipe_id": 44,
+      "codigo_motivo": "CAPACIDADE_ESGOTADA",
+      "causa": "Ha salas compativeis no predio, mas todas ja estao ocupadas no turno tarde por equipes de prioridade igual ou maior. Nenhum dos 2 relaxamentos testados resolveria sozinho: as salas compativeis seguem ocupadas por equipes que tambem precisam delas.",
+      "encaminhamento": "O predio nao comporta a demanda no turno solicitado. Avaliar deslocamento para outro turno."
+    }
+  ]
+}

@@ -5,9 +5,13 @@ O critério central do projeto não é alocar — é **conseguir justificar a
 alocação**. Quando houver dúvida entre duas opções, escolha a que deixa a
 decisão mais auditável.
 
-Estado: **D3 de 7**. O motor decide e explica: `POST /api/runs` roda baseline,
+Estado: **D4 de 7**. O motor decide e explica: `POST /api/runs` roda baseline,
 solver, explainer, diagnostics e validador, e grava a execução com a
-justificativa de cada recomendação. As telas de tabela e mapa entram no D4.
+justificativa de cada recomendação. As telas de leitura lêem a última execução
+válida: `Dashboard` (indicadores + mapa dos 9 andares), `Comparacao` (antes ×
+depois) e `Alocacao` (tabela equipe → sala + mapa). O join id → nome/andar vive
+em `apps/web/src/lib/alocacao.ts`; o mapa é honesto quanto a turno. A governança
+e a intervenção humana entram no D5.
 
 ## Comandos
 

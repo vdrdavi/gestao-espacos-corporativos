@@ -1,0 +1,50 @@
+[
+  {
+    "nome": "Comercial",
+    "coordenador": "Helena Truffi",
+    "total_funcionarios": 1100,
+    "id": 3
+  },
+  {
+    "nome": "Financeiro",
+    "coordenador": "Clara Nakamura",
+    "total_funcionarios": 600,
+    "id": 5
+  },
+  {
+    "nome": "Juridico",
+    "coordenador": "Antonio Vilela",
+    "total_funcionarios": 300,
+    "id": 8
+  },
+  {
+    "nome": "Marketing",
+    "coordenador": "Diego Ferraz",
+    "total_funcionarios": 500,
+    "id": 6
+  },
+  {
+    "nome": "Operacoes",
+    "coordenador": "Rogerio Bastos",
+    "total_funcionarios": 1400,
+    "id": 2
+  },
+  {
+    "nome": "Pesquisa e Desenvolvimento",
+    "coordenador": "Ivo Sampaio",
+    "total_funcionarios": 1000,
+    "id": 4
+  },
+  {
+    "nome": "Recursos Humanos",
+    "coordenador": "Beatriz Lousada",
+    "total_funcionarios": 500,
+    "id": 7
+  },
+  {
+    "nome": "Tecnologia",
+    "coordenador": "Marina Alcantara",
+    "total_funcionarios": 1600,
+    "id": 1
+  }
+]

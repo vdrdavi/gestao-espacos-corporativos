@@ -1,0 +1,1495 @@
+[
+  {
+    "codigo": "101",
+    "andar": 1,
+    "capacidade": 18,
+    "tipo": "reuniao",
+    "recursos": [
+      "projetor"
+    ],
+    "acessivel": false,
+    "disponivel": true,
+    "reservada_para_setor_id": null,
+    "id": 1
+  },
+  {
+    "codigo": "102",
+    "andar": 1,
+    "capacidade": 10,
+    "tipo": "reuniao",
+    "recursos": [
+      "projetor",
+      "videoconferencia"
+    ],
+    "acessivel": false,
+    "disponivel": true,
+    "reservada_para_setor_id": null,
+    "id": 2
+  },
+  {
+    "codigo": "103",
+    "andar": 1,
+    "capacidade": 8,
+    "tipo": "reuniao",
+    "recursos": [
+      "projetor",
+      "videoconferencia"
+    ],
+    "acessivel": true,
+    "disponivel": true,
+    "reservada_para_setor_id": null,
+    "id": 3
+  },
+  {
+    "codigo": "104",
+    "andar": 1,
+    "capacidade": 10,
+    "tipo": "reuniao",
+    "recursos": [
+      "projetor",
+      "videoconferencia"
+    ],
+    "acessivel": true,
+    "disponivel": true,
+    "reservada_para_setor_id": null,
+    "id": 4
+  },
+  {
+    "codigo": "105",
+    "andar": 1,
+    "capacidade": 45,
+    "tipo": "projeto",
+    "recursos": [
+      "quadro_interativo"
+    ],
+    "acessivel": false,
+    "disponivel": true,
+    "reservada_para_setor_id": null,
+    "id": 5
+  },
+  {
+    "codigo": "106",
+    "andar": 1,
+    "capacidade": 39,
+    "tipo": "projeto",
+    "recursos": [
+      "quadro_interativo"
+    ],
+    "acessivel": false,
+    "disponivel": true,
+    "reservada_para_setor_id": null,
+    "id": 6
+  },
+  {
+    "codigo": "107",
+    "andar": 1,
+    "capacidade": 25,
+    "tipo": "colaborativo",
+    "recursos": [
+      "ilhas_colaborativas",
+      "quadro_interativo"
+    ],
+    "acessivel": false,
+    "disponivel": true,
+    "reservada_para_setor_id": null,
+    "id": 7
+  },
+  {
+    "codigo": "108",
+    "andar": 1,
+    "capacidade": 37,
+    "tipo": "treinamento",
+    "recursos": [
+      "projetor",
+      "quadro_interativo"
+    ],
+    "acessivel": true,
+    "disponivel": true,
+    "reservada_para_setor_id": null,
+    "id": 8
+  },
+  {
+    "codigo": "109",
+    "andar": 1,
+    "capacidade": 75,
+    "tipo": "treinamento",
+    "recursos": [
+      "projetor",
+      "quadro_interativo"
+    ],
+    "acessivel": true,
+    "disponivel": true,
+    "reservada_para_setor_id": null,
+    "id": 9
+  },
+  {
+    "codigo": "110",
+    "andar": 1,
+    "capacidade": 77,
+    "tipo": "colaborativo",
+    "recursos": [
+      "ilhas_colaborativas",
+      "quadro_interativo"
+    ],
+    "acessivel": false,
+    "disponivel": true,
+    "reservada_para_setor_id": null,
+    "id": 10
+  },
+  {
+    "codigo": "111",
+    "andar": 1,
+    "capacidade": 57,
+    "tipo": "colaborativo",
+    "recursos": [
+      "ilhas_colaborativas",
+      "quadro_interativo"
+    ],
+    "acessivel": false,
+    "disponivel": true,
+    "reservada_para_setor_id": null,
+    "id": 11
+  },
+  {
+    "codigo": "112",
+    "andar": 1,
+    "capacidade": 124,
+    "tipo": "auditorio",
+    "recursos": [
+      "projetor",
+      "palco",
+      "videoconferencia"
+    ],
+    "acessivel": true,
+    "disponivel": true,
+    "reservada_para_setor_id": null,
+    "id": 12
+  },
+  {
+    "codigo": "201",
+    "andar": 2,
+    "capacidade": 12,
+    "tipo": "reuniao",
+    "recursos": [
+      "projetor",
+      "videoconferencia"
+    ],
+    "acessivel": false,
+    "disponivel": true,
+    "reservada_para_setor_id": null,
+    "id": 13
+  },
+  {
+    "codigo": "202",
+    "andar": 2,
+    "capacidade": 16,
+    "tipo": "reuniao",
+    "recursos": [
+      "projetor"
+    ],
+    "acessivel": true,
+    "disponivel": true,
+    "reservada_para_setor_id": null,
+    "id": 14
+  },
+  {
+    "codigo": "203",
+    "andar": 2,
+    "capacidade": 20,
+    "tipo": "reuniao",
+    "recursos": [
+      "projetor"
+    ],
+    "acessivel": true,
+    "disponivel": true,
+    "reservada_para_setor_id": null,
+    "id": 15
+  },
+  {
+    "codigo": "204",
+    "andar": 2,
+    "capacidade": 8,
+    "tipo": "reuniao",
+    "recursos": [
+      "projetor"
+    ],
+    "acessivel": true,
+    "disponivel": true,
+    "reservada_para_setor_id": null,
+    "id": 16
+  },
+  {
+    "codigo": "205",
+    "andar": 2,
+    "capacidade": 29,
+    "tipo": "projeto",
+    "recursos": [
+      "quadro_interativo"
+    ],
+    "acessivel": true,
+    "disponivel": true,
+    "reservada_para_setor_id": null,
+    "id": 17
+  },
+  {
+    "codigo": "206",
+    "andar": 2,
+    "capacidade": 33,
+    "tipo": "projeto",
+    "recursos": [
+      "quadro_interativo"
+    ],
+    "acessivel": false,
+    "disponivel": true,
+    "reservada_para_setor_id": null,
+    "id": 18
+  },
+  {
+    "codigo": "207",
+    "andar": 2,
+    "capacidade": 27,
+    "tipo": "colaborativo",
+    "recursos": [
+      "ilhas_colaborativas",
+      "quadro_interativo"
+    ],
+    "acessivel": false,
+    "disponivel": true,
+    "reservada_para_setor_id": null,
+    "id": 19
+  },
+  {
+    "codigo": "208",
+    "andar": 2,
+    "capacidade": 47,
+    "tipo": "treinamento",
+    "recursos": [
+      "projetor",
+      "quadro_interativo"
+    ],
+    "acessivel": true,
+    "disponivel": true,
+    "reservada_para_setor_id": null,
+    "id": 20
+  },
+  {
+    "codigo": "209",
+    "andar": 2,
+    "capacidade": 71,
+    "tipo": "treinamento",
+    "recursos": [
+      "projetor",
+      "quadro_interativo"
+    ],
+    "acessivel": false,
+    "disponivel": true,
+    "reservada_para_setor_id": null,
+    "id": 21
+  },
+  {
+    "codigo": "210",
+    "andar": 2,
+    "capacidade": 89,
+    "tipo": "colaborativo",
+    "recursos": [
+      "ilhas_colaborativas",
+      "quadro_interativo"
+    ],
+    "acessivel": true,
+    "disponivel": true,
+    "reservada_para_setor_id": null,
+    "id": 22
+  },
+  {
+    "codigo": "211",
+    "andar": 2,
+    "capacidade": 57,
+    "tipo": "colaborativo",
+    "recursos": [
+      "ilhas_colaborativas",
+      "quadro_interativo"
+    ],
+    "acessivel": true,
+    "disponivel": false,
+    "reservada_para_setor_id": null,
+    "id": 23
+  },
+  {
+    "codigo": "212",
+    "andar": 2,
+    "capacidade": 120,
+    "tipo": "auditorio",
+    "recursos": [
+      "projetor",
+      "palco",
+      "videoconferencia"
+    ],
+    "acessivel": true,
+    "disponivel": true,
+    "reservada_para_setor_id": null,
+    "id": 24
+  },
+  {
+    "codigo": "301",
+    "andar": 3,
+    "capacidade": 8,
+    "tipo": "reuniao",
+    "recursos": [
+      "projetor"
+    ],
+    "acessivel": false,
+    "disponivel": true,
+    "reservada_para_setor_id": null,
+    "id": 25
+  },
+  {
+    "codigo": "302",
+    "andar": 3,
+    "capacidade": 12,
+    "tipo": "reuniao",
+    "recursos": [
+      "projetor"
+    ],
+    "acessivel": false,
+    "disponivel": true,
+    "reservada_para_setor_id": null,
+    "id": 26
+  },
+  {
+    "codigo": "303",
+    "andar": 3,
+    "capacidade": 18,
+    "tipo": "reuniao",
+    "recursos": [
+      "projetor",
+      "videoconferencia"
+    ],
+    "acessivel": true,
+    "disponivel": true,
+    "reservada_para_setor_id": null,
+    "id": 27
+  },
+  {
+    "codigo": "304",
+    "andar": 3,
+    "capacidade": 16,
+    "tipo": "reuniao",
+    "recursos": [
+      "projetor",
+      "videoconferencia"
+    ],
+    "acessivel": false,
+    "disponivel": true,
+    "reservada_para_setor_id": null,
+    "id": 28
+  },
+  {
+    "codigo": "305",
+    "andar": 3,
+    "capacidade": 43,
+    "tipo": "projeto",
+    "recursos": [
+      "quadro_interativo"
+    ],
+    "acessivel": true,
+    "disponivel": true,
+    "reservada_para_setor_id": null,
+    "id": 29
+  },
+  {
+    "codigo": "306",
+    "andar": 3,
+    "capacidade": 29,
+    "tipo": "projeto",
+    "recursos": [
+      "quadro_interativo"
+    ],
+    "acessivel": false,
+    "disponivel": true,
+    "reservada_para_setor_id": null,
+    "id": 30
+  },
+  {
+    "codigo": "307",
+    "andar": 3,
+    "capacidade": 25,
+    "tipo": "colaborativo",
+    "recursos": [
+      "ilhas_colaborativas",
+      "quadro_interativo"
+    ],
+    "acessivel": false,
+    "disponivel": true,
+    "reservada_para_setor_id": null,
+    "id": 31
+  },
+  {
+    "codigo": "308",
+    "andar": 3,
+    "capacidade": 29,
+    "tipo": "treinamento",
+    "recursos": [
+      "projetor",
+      "quadro_interativo"
+    ],
+    "acessivel": false,
+    "disponivel": true,
+    "reservada_para_setor_id": null,
+    "id": 32
+  },
+  {
+    "codigo": "309",
+    "andar": 3,
+    "capacidade": 59,
+    "tipo": "treinamento",
+    "recursos": [
+      "projetor",
+      "quadro_interativo"
+    ],
+    "acessivel": true,
+    "disponivel": true,
+    "reservada_para_setor_id": null,
+    "id": 33
+  },
+  {
+    "codigo": "310",
+    "andar": 3,
+    "capacidade": 83,
+    "tipo": "colaborativo",
+    "recursos": [
+      "ilhas_colaborativas",
+      "quadro_interativo"
+    ],
+    "acessivel": false,
+    "disponivel": true,
+    "reservada_para_setor_id": null,
+    "id": 34
+  },
+  {
+    "codigo": "311",
+    "andar": 3,
+    "capacidade": 55,
+    "tipo": "colaborativo",
+    "recursos": [
+      "ilhas_colaborativas",
+      "quadro_interativo"
+    ],
+    "acessivel": false,
+    "disponivel": true,
+    "reservada_para_setor_id": null,
+    "id": 35
+  },
+  {
+    "codigo": "312",
+    "andar": 3,
+    "capacidade": 116,
+    "tipo": "auditorio",
+    "recursos": [
+      "projetor",
+      "palco",
+      "videoconferencia"
+    ],
+    "acessivel": true,
+    "disponivel": true,
+    "reservada_para_setor_id": null,
+    "id": 36
+  },
+  {
+    "codigo": "401",
+    "andar": 4,
+    "capacidade": 12,
+    "tipo": "reuniao",
+    "recursos": [
+      "projetor"
+    ],
+    "acessivel": true,
+    "disponivel": true,
+    "reservada_para_setor_id": null,
+    "id": 37
+  },
+  {
+    "codigo": "402",
+    "andar": 4,
+    "capacidade": 18,
+    "tipo": "reuniao",
+    "recursos": [
+      "projetor",
+      "videoconferencia"
+    ],
+    "acessivel": true,
+    "disponivel": true,
+    "reservada_para_setor_id": null,
+    "id": 38
+  },
+  {
+    "codigo": "403",
+    "andar": 4,
+    "capacidade": 10,
+    "tipo": "reuniao",
+    "recursos": [
+      "projetor",
+      "videoconferencia"
+    ],
+    "acessivel": true,
+    "disponivel": true,
+    "reservada_para_setor_id": null,
+    "id": 39
+  },
+  {
+    "codigo": "404",
+    "andar": 4,
+    "capacidade": 20,
+    "tipo": "reuniao",
+    "recursos": [
+      "projetor",
+      "videoconferencia"
+    ],
+    "acessivel": false,
+    "disponivel": true,
+    "reservada_para_setor_id": null,
+    "id": 40
+  },
+  {
+    "codigo": "405",
+    "andar": 4,
+    "capacidade": 49,
+    "tipo": "projeto",
+    "recursos": [
+      "quadro_interativo"
+    ],
+    "acessivel": true,
+    "disponivel": true,
+    "reservada_para_setor_id": null,
+    "id": 41
+  },
+  {
+    "codigo": "406",
+    "andar": 4,
+    "capacidade": 41,
+    "tipo": "projeto",
+    "recursos": [
+      "quadro_interativo"
+    ],
+    "acessivel": false,
+    "disponivel": true,
+    "reservada_para_setor_id": null,
+    "id": 42
+  },
+  {
+    "codigo": "407",
+    "andar": 4,
+    "capacidade": 39,
+    "tipo": "colaborativo",
+    "recursos": [
+      "ilhas_colaborativas",
+      "quadro_interativo"
+    ],
+    "acessivel": true,
+    "disponivel": true,
+    "reservada_para_setor_id": null,
+    "id": 43
+  },
+  {
+    "codigo": "408",
+    "andar": 4,
+    "capacidade": 49,
+    "tipo": "treinamento",
+    "recursos": [
+      "projetor",
+      "quadro_interativo"
+    ],
+    "acessivel": true,
+    "disponivel": true,
+    "reservada_para_setor_id": null,
+    "id": 44
+  },
+  {
+    "codigo": "409",
+    "andar": 4,
+    "capacidade": 59,
+    "tipo": "treinamento",
+    "recursos": [
+      "projetor",
+      "quadro_interativo"
+    ],
+    "acessivel": true,
+    "disponivel": true,
+    "reservada_para_setor_id": null,
+    "id": 45
+  },
+  {
+    "codigo": "410",
+    "andar": 4,
+    "capacidade": 59,
+    "tipo": "colaborativo",
+    "recursos": [
+      "ilhas_colaborativas",
+      "quadro_interativo"
+    ],
+    "acessivel": false,
+    "disponivel": true,
+    "reservada_para_setor_id": null,
+    "id": 46
+  },
+  {
+    "codigo": "411",
+    "andar": 4,
+    "capacidade": 63,
+    "tipo": "colaborativo",
+    "recursos": [
+      "ilhas_colaborativas",
+      "quadro_interativo"
+    ],
+    "acessivel": true,
+    "disponivel": true,
+    "reservada_para_setor_id": null,
+    "id": 47
+  },
+  {
+    "codigo": "412",
+    "andar": 4,
+    "capacidade": 110,
+    "tipo": "auditorio",
+    "recursos": [
+      "projetor",
+      "palco",
+      "videoconferencia"
+    ],
+    "acessivel": true,
+    "disponivel": true,
+    "reservada_para_setor_id": null,
+    "id": 48
+  },
+  {
+    "codigo": "501",
+    "andar": 5,
+    "capacidade": 20,
+    "tipo": "reuniao",
+    "recursos": [
+      "projetor",
+      "videoconferencia"
+    ],
+    "acessivel": false,
+    "disponivel": true,
+    "reservada_para_setor_id": null,
+    "id": 49
+  },
+  {
+    "codigo": "502",
+    "andar": 5,
+    "capacidade": 20,
+    "tipo": "reuniao",
+    "recursos": [
+      "projetor",
+      "videoconferencia"
+    ],
+    "acessivel": true,
+    "disponivel": true,
+    "reservada_para_setor_id": null,
+    "id": 50
+  },
+  {
+    "codigo": "503",
+    "andar": 5,
+    "capacidade": 18,
+    "tipo": "reuniao",
+    "recursos": [
+      "projetor",
+      "videoconferencia"
+    ],
+    "acessivel": false,
+    "disponivel": true,
+    "reservada_para_setor_id": null,
+    "id": 51
+  },
+  {
+    "codigo": "504",
+    "andar": 5,
+    "capacidade": 8,
+    "tipo": "reuniao",
+    "recursos": [
+      "projetor"
+    ],
+    "acessivel": true,
+    "disponivel": false,
+    "reservada_para_setor_id": null,
+    "id": 52
+  },
+  {
+    "codigo": "505",
+    "andar": 5,
+    "capacidade": 41,
+    "tipo": "projeto",
+    "recursos": [
+      "quadro_interativo"
+    ],
+    "acessivel": true,
+    "disponivel": true,
+    "reservada_para_setor_id": null,
+    "id": 53
+  },
+  {
+    "codigo": "506",
+    "andar": 5,
+    "capacidade": 27,
+    "tipo": "projeto",
+    "recursos": [
+      "quadro_interativo"
+    ],
+    "acessivel": false,
+    "disponivel": true,
+    "reservada_para_setor_id": null,
+    "id": 54
+  },
+  {
+    "codigo": "507",
+    "andar": 5,
+    "capacidade": 27,
+    "tipo": "colaborativo",
+    "recursos": [
+      "ilhas_colaborativas",
+      "quadro_interativo"
+    ],
+    "acessivel": false,
+    "disponivel": true,
+    "reservada_para_setor_id": null,
+    "id": 55
+  },
+  {
+    "codigo": "508",
+    "andar": 5,
+    "capacidade": 27,
+    "tipo": "treinamento",
+    "recursos": [
+      "projetor",
+      "quadro_interativo"
+    ],
+    "acessivel": false,
+    "disponivel": true,
+    "reservada_para_setor_id": null,
+    "id": 56
+  },
+  {
+    "codigo": "509",
+    "andar": 5,
+    "capacidade": 85,
+    "tipo": "treinamento",
+    "recursos": [
+      "projetor",
+      "quadro_interativo"
+    ],
+    "acessivel": true,
+    "disponivel": true,
+    "reservada_para_setor_id": null,
+    "id": 57
+  },
+  {
+    "codigo": "510",
+    "andar": 5,
+    "capacidade": 85,
+    "tipo": "colaborativo",
+    "recursos": [
+      "ilhas_colaborativas",
+      "quadro_interativo"
+    ],
+    "acessivel": true,
+    "disponivel": true,
+    "reservada_para_setor_id": null,
+    "id": 58
+  },
+  {
+    "codigo": "511",
+    "andar": 5,
+    "capacidade": 81,
+    "tipo": "colaborativo",
+    "recursos": [
+      "ilhas_colaborativas",
+      "quadro_interativo"
+    ],
+    "acessivel": true,
+    "disponivel": true,
+    "reservada_para_setor_id": null,
+    "id": 59
+  },
+  {
+    "codigo": "512",
+    "andar": 5,
+    "capacidade": 126,
+    "tipo": "auditorio",
+    "recursos": [
+      "projetor",
+      "palco",
+      "videoconferencia"
+    ],
+    "acessivel": true,
+    "disponivel": true,
+    "reservada_para_setor_id": null,
+    "id": 60
+  },
+  {
+    "codigo": "601",
+    "andar": 6,
+    "capacidade": 14,
+    "tipo": "reuniao",
+    "recursos": [
+      "projetor",
+      "videoconferencia"
+    ],
+    "acessivel": false,
+    "disponivel": true,
+    "reservada_para_setor_id": null,
+    "id": 61
+  },
+  {
+    "codigo": "602",
+    "andar": 6,
+    "capacidade": 18,
+    "tipo": "reuniao",
+    "recursos": [
+      "projetor"
+    ],
+    "acessivel": false,
+    "disponivel": true,
+    "reservada_para_setor_id": null,
+    "id": 62
+  },
+  {
+    "codigo": "603",
+    "andar": 6,
+    "capacidade": 20,
+    "tipo": "reuniao",
+    "recursos": [
+      "projetor"
+    ],
+    "acessivel": true,
+    "disponivel": true,
+    "reservada_para_setor_id": null,
+    "id": 63
+  },
+  {
+    "codigo": "604",
+    "andar": 6,
+    "capacidade": 10,
+    "tipo": "reuniao",
+    "recursos": [
+      "projetor"
+    ],
+    "acessivel": true,
+    "disponivel": true,
+    "reservada_para_setor_id": null,
+    "id": 64
+  },
+  {
+    "codigo": "605",
+    "andar": 6,
+    "capacidade": 27,
+    "tipo": "projeto",
+    "recursos": [
+      "quadro_interativo"
+    ],
+    "acessivel": false,
+    "disponivel": true,
+    "reservada_para_setor_id": null,
+    "id": 65
+  },
+  {
+    "codigo": "606",
+    "andar": 6,
+    "capacidade": 41,
+    "tipo": "projeto",
+    "recursos": [
+      "quadro_interativo"
+    ],
+    "acessivel": true,
+    "disponivel": true,
+    "reservada_para_setor_id": null,
+    "id": 66
+  },
+  {
+    "codigo": "607",
+    "andar": 6,
+    "capacidade": 41,
+    "tipo": "colaborativo",
+    "recursos": [
+      "ilhas_colaborativas",
+      "quadro_interativo"
+    ],
+    "acessivel": false,
+    "disponivel": true,
+    "reservada_para_setor_id": null,
+    "id": 67
+  },
+  {
+    "codigo": "608",
+    "andar": 6,
+    "capacidade": 49,
+    "tipo": "treinamento",
+    "recursos": [
+      "projetor",
+      "quadro_interativo"
+    ],
+    "acessivel": false,
+    "disponivel": true,
+    "reservada_para_setor_id": null,
+    "id": 68
+  },
+  {
+    "codigo": "609",
+    "andar": 6,
+    "capacidade": 85,
+    "tipo": "treinamento",
+    "recursos": [
+      "projetor",
+      "quadro_interativo"
+    ],
+    "acessivel": false,
+    "disponivel": true,
+    "reservada_para_setor_id": null,
+    "id": 69
+  },
+  {
+    "codigo": "610",
+    "andar": 6,
+    "capacidade": 57,
+    "tipo": "colaborativo",
+    "recursos": [
+      "ilhas_colaborativas",
+      "quadro_interativo"
+    ],
+    "acessivel": true,
+    "disponivel": false,
+    "reservada_para_setor_id": null,
+    "id": 70
+  },
+  {
+    "codigo": "611",
+    "andar": 6,
+    "capacidade": 79,
+    "tipo": "colaborativo",
+    "recursos": [
+      "ilhas_colaborativas",
+      "quadro_interativo"
+    ],
+    "acessivel": true,
+    "disponivel": true,
+    "reservada_para_setor_id": null,
+    "id": 71
+  },
+  {
+    "codigo": "612",
+    "andar": 6,
+    "capacidade": 128,
+    "tipo": "auditorio",
+    "recursos": [
+      "projetor",
+      "palco",
+      "videoconferencia"
+    ],
+    "acessivel": true,
+    "disponivel": true,
+    "reservada_para_setor_id": null,
+    "id": 72
+  },
+  {
+    "codigo": "701",
+    "andar": 7,
+    "capacidade": 18,
+    "tipo": "reuniao",
+    "recursos": [
+      "projetor",
+      "videoconferencia"
+    ],
+    "acessivel": false,
+    "disponivel": true,
+    "reservada_para_setor_id": null,
+    "id": 73
+  },
+  {
+    "codigo": "702",
+    "andar": 7,
+    "capacidade": 18,
+    "tipo": "reuniao",
+    "recursos": [
+      "projetor",
+      "videoconferencia"
+    ],
+    "acessivel": true,
+    "disponivel": true,
+    "reservada_para_setor_id": null,
+    "id": 74
+  },
+  {
+    "codigo": "703",
+    "andar": 7,
+    "capacidade": 8,
+    "tipo": "reuniao",
+    "recursos": [
+      "projetor",
+      "videoconferencia"
+    ],
+    "acessivel": false,
+    "disponivel": true,
+    "reservada_para_setor_id": null,
+    "id": 75
+  },
+  {
+    "codigo": "704",
+    "andar": 7,
+    "capacidade": 8,
+    "tipo": "reuniao",
+    "recursos": [
+      "projetor"
+    ],
+    "acessivel": false,
+    "disponivel": true,
+    "reservada_para_setor_id": null,
+    "id": 76
+  },
+  {
+    "codigo": "705",
+    "andar": 7,
+    "capacidade": 41,
+    "tipo": "projeto",
+    "recursos": [
+      "quadro_interativo"
+    ],
+    "acessivel": true,
+    "disponivel": true,
+    "reservada_para_setor_id": null,
+    "id": 77
+  },
+  {
+    "codigo": "706",
+    "andar": 7,
+    "capacidade": 27,
+    "tipo": "projeto",
+    "recursos": [
+      "quadro_interativo"
+    ],
+    "acessivel": false,
+    "disponivel": true,
+    "reservada_para_setor_id": null,
+    "id": 78
+  },
+  {
+    "codigo": "707",
+    "andar": 7,
+    "capacidade": 27,
+    "tipo": "colaborativo",
+    "recursos": [
+      "ilhas_colaborativas",
+      "quadro_interativo"
+    ],
+    "acessivel": false,
+    "disponivel": true,
+    "reservada_para_setor_id": null,
+    "id": 79
+  },
+  {
+    "codigo": "708",
+    "andar": 7,
+    "capacidade": 27,
+    "tipo": "treinamento",
+    "recursos": [
+      "projetor",
+      "quadro_interativo"
+    ],
+    "acessivel": false,
+    "disponivel": true,
+    "reservada_para_setor_id": null,
+    "id": 80
+  },
+  {
+    "codigo": "709",
+    "andar": 7,
+    "capacidade": 57,
+    "tipo": "treinamento",
+    "recursos": [
+      "projetor",
+      "quadro_interativo"
+    ],
+    "acessivel": false,
+    "disponivel": true,
+    "reservada_para_setor_id": null,
+    "id": 81
+  },
+  {
+    "codigo": "710",
+    "andar": 7,
+    "capacidade": 87,
+    "tipo": "colaborativo",
+    "recursos": [
+      "ilhas_colaborativas",
+      "quadro_interativo"
+    ],
+    "acessivel": true,
+    "disponivel": true,
+    "reservada_para_setor_id": null,
+    "id": 82
+  },
+  {
+    "codigo": "711",
+    "andar": 7,
+    "capacidade": 75,
+    "tipo": "colaborativo",
+    "recursos": [
+      "ilhas_colaborativas",
+      "quadro_interativo"
+    ],
+    "acessivel": true,
+    "disponivel": true,
+    "reservada_para_setor_id": null,
+    "id": 83
+  },
+  {
+    "codigo": "712",
+    "andar": 7,
+    "capacidade": 118,
+    "tipo": "auditorio",
+    "recursos": [
+      "projetor",
+      "palco",
+      "videoconferencia"
+    ],
+    "acessivel": true,
+    "disponivel": true,
+    "reservada_para_setor_id": null,
+    "id": 84
+  },
+  {
+    "codigo": "801",
+    "andar": 8,
+    "capacidade": 20,
+    "tipo": "reuniao",
+    "recursos": [
+      "projetor",
+      "videoconferencia"
+    ],
+    "acessivel": true,
+    "disponivel": true,
+    "reservada_para_setor_id": null,
+    "id": 85
+  },
+  {
+    "codigo": "802",
+    "andar": 8,
+    "capacidade": 16,
+    "tipo": "reuniao",
+    "recursos": [
+      "projetor",
+      "videoconferencia"
+    ],
+    "acessivel": true,
+    "disponivel": true,
+    "reservada_para_setor_id": null,
+    "id": 86
+  },
+  {
+    "codigo": "803",
+    "andar": 8,
+    "capacidade": 12,
+    "tipo": "reuniao",
+    "recursos": [
+      "projetor"
+    ],
+    "acessivel": false,
+    "disponivel": true,
+    "reservada_para_setor_id": null,
+    "id": 87
+  },
+  {
+    "codigo": "804",
+    "andar": 8,
+    "capacidade": 10,
+    "tipo": "reuniao",
+    "recursos": [
+      "projetor"
+    ],
+    "acessivel": true,
+    "disponivel": true,
+    "reservada_para_setor_id": null,
+    "id": 88
+  },
+  {
+    "codigo": "805",
+    "andar": 8,
+    "capacidade": 47,
+    "tipo": "laboratorio",
+    "recursos": [
+      "bancada_tecnica",
+      "quadro_interativo"
+    ],
+    "acessivel": false,
+    "disponivel": true,
+    "reservada_para_setor_id": null,
+    "id": 89
+  },
+  {
+    "codigo": "806",
+    "andar": 8,
+    "capacidade": 49,
+    "tipo": "laboratorio",
+    "recursos": [
+      "bancada_tecnica",
+      "quadro_interativo"
+    ],
+    "acessivel": false,
+    "disponivel": false,
+    "reservada_para_setor_id": null,
+    "id": 90
+  },
+  {
+    "codigo": "807",
+    "andar": 8,
+    "capacidade": 41,
+    "tipo": "colaborativo",
+    "recursos": [
+      "ilhas_colaborativas",
+      "quadro_interativo"
+    ],
+    "acessivel": false,
+    "disponivel": true,
+    "reservada_para_setor_id": null,
+    "id": 91
+  },
+  {
+    "codigo": "808",
+    "andar": 8,
+    "capacidade": 29,
+    "tipo": "treinamento",
+    "recursos": [
+      "projetor",
+      "quadro_interativo"
+    ],
+    "acessivel": true,
+    "disponivel": true,
+    "reservada_para_setor_id": null,
+    "id": 92
+  },
+  {
+    "codigo": "809",
+    "andar": 8,
+    "capacidade": 89,
+    "tipo": "treinamento",
+    "recursos": [
+      "projetor",
+      "quadro_interativo"
+    ],
+    "acessivel": true,
+    "disponivel": true,
+    "reservada_para_setor_id": null,
+    "id": 93
+  },
+  {
+    "codigo": "810",
+    "andar": 8,
+    "capacidade": 67,
+    "tipo": "colaborativo",
+    "recursos": [
+      "ilhas_colaborativas",
+      "quadro_interativo"
+    ],
+    "acessivel": false,
+    "disponivel": true,
+    "reservada_para_setor_id": null,
+    "id": 94
+  },
+  {
+    "codigo": "811",
+    "andar": 8,
+    "capacidade": 71,
+    "tipo": "colaborativo",
+    "recursos": [
+      "ilhas_colaborativas",
+      "quadro_interativo"
+    ],
+    "acessivel": false,
+    "disponivel": true,
+    "reservada_para_setor_id": null,
+    "id": 95
+  },
+  {
+    "codigo": "812",
+    "andar": 8,
+    "capacidade": 102,
+    "tipo": "auditorio",
+    "recursos": [
+      "projetor",
+      "palco",
+      "videoconferencia"
+    ],
+    "acessivel": true,
+    "disponivel": true,
+    "reservada_para_setor_id": null,
+    "id": 96
+  },
+  {
+    "codigo": "901",
+    "andar": 9,
+    "capacidade": 14,
+    "tipo": "reuniao",
+    "recursos": [
+      "projetor",
+      "videoconferencia"
+    ],
+    "acessivel": true,
+    "disponivel": true,
+    "reservada_para_setor_id": null,
+    "id": 97
+  },
+  {
+    "codigo": "902",
+    "andar": 9,
+    "capacidade": 10,
+    "tipo": "reuniao",
+    "recursos": [
+      "projetor",
+      "videoconferencia"
+    ],
+    "acessivel": false,
+    "disponivel": true,
+    "reservada_para_setor_id": null,
+    "id": 98
+  },
+  {
+    "codigo": "903",
+    "andar": 9,
+    "capacidade": 16,
+    "tipo": "reuniao",
+    "recursos": [
+      "projetor",
+      "videoconferencia"
+    ],
+    "acessivel": false,
+    "disponivel": true,
+    "reservada_para_setor_id": null,
+    "id": 99
+  },
+  {
+    "codigo": "904",
+    "andar": 9,
+    "capacidade": 18,
+    "tipo": "reuniao",
+    "recursos": [
+      "projetor",
+      "videoconferencia"
+    ],
+    "acessivel": false,
+    "disponivel": true,
+    "reservada_para_setor_id": null,
+    "id": 100
+  },
+  {
+    "codigo": "905",
+    "andar": 9,
+    "capacidade": 43,
+    "tipo": "laboratorio",
+    "recursos": [
+      "bancada_tecnica",
+      "quadro_interativo"
+    ],
+    "acessivel": false,
+    "disponivel": true,
+    "reservada_para_setor_id": null,
+    "id": 101
+  },
+  {
+    "codigo": "906",
+    "andar": 9,
+    "capacidade": 25,
+    "tipo": "laboratorio",
+    "recursos": [
+      "bancada_tecnica",
+      "quadro_interativo"
+    ],
+    "acessivel": false,
+    "disponivel": true,
+    "reservada_para_setor_id": null,
+    "id": 102
+  },
+  {
+    "codigo": "907",
+    "andar": 9,
+    "capacidade": 49,
+    "tipo": "colaborativo",
+    "recursos": [
+      "ilhas_colaborativas",
+      "quadro_interativo"
+    ],
+    "acessivel": false,
+    "disponivel": false,
+    "reservada_para_setor_id": null,
+    "id": 103
+  },
+  {
+    "codigo": "908",
+    "andar": 9,
+    "capacidade": 35,
+    "tipo": "treinamento",
+    "recursos": [
+      "projetor",
+      "quadro_interativo"
+    ],
+    "acessivel": true,
+    "disponivel": true,
+    "reservada_para_setor_id": null,
+    "id": 104
+  },
+  {
+    "codigo": "909",
+    "andar": 9,
+    "capacidade": 61,
+    "tipo": "treinamento",
+    "recursos": [
+      "projetor",
+      "quadro_interativo"
+    ],
+    "acessivel": false,
+    "disponivel": true,
+    "reservada_para_setor_id": null,
+    "id": 105
+  },
+  {
+    "codigo": "910",
+    "andar": 9,
+    "capacidade": 81,
+    "tipo": "colaborativo",
+    "recursos": [
+      "ilhas_colaborativas",
+      "quadro_interativo"
+    ],
+    "acessivel": false,
+    "disponivel": true,
+    "reservada_para_setor_id": null,
+    "id": 106
+  },
+  {
+    "codigo": "911",
+    "andar": 9,
+    "capacidade": 69,
+    "tipo": "colaborativo",
+    "recursos": [
+      "ilhas_colaborativas",
+      "quadro_interativo"
+    ],
+    "acessivel": false,
+    "disponivel": true,
+    "reservada_para_setor_id": null,
+    "id": 107
+  },
+  {
+    "codigo": "912",
+    "andar": 9,
+    "capacidade": 110,
+    "tipo": "auditorio",
+    "recursos": [
+      "projetor",
+      "palco",
+      "videoconferencia"
+    ],
+    "acessivel": true,
+    "disponivel": true,
+    "reservada_para_setor_id": null,
+    "id": 108
+  }
+]

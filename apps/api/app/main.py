@@ -19,11 +19,12 @@ O motor não decide sozinho: cada recomendação carrega sua justificativa, cada
 execução vira um registro de auditoria imutável, e o Coordenador Geral pode
 aceitar, rejeitar ou alterar qualquer sugestão — com a intervenção registrada.
 
-**Estado atual (D3):** o motor decide e explica. `POST /api/runs` roda o baseline
+**Estado atual (D4):** o motor decide e explica. `POST /api/runs` roda o baseline
 guloso e o solver CP-SAT, reconstrói a conta de cada recomendação com as salas
 descartadas, diagnostica por relaxamento cada equipe que ficou de fora, submete
-tudo a um validador independente e grava a execução. As telas de tabela e mapa
-de ocupação entram no D4.
+tudo a um validador independente e grava a execução. O front lê essa execução:
+tabela equipe → sala, mapa de ocupação dos 9 andares e comparação antes ×
+depois. Governança e intervenção humana entram no D5.
 """
 
 

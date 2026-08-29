@@ -1,19 +1,23 @@
 import { useState } from 'react'
 import { api } from '../api/client'
 import { useApi } from '../api/useApi'
-import { Card, Carregando, Erro, Pendente, Secao } from '../components/ui'
+import { useReferencia } from '../api/useReferencia'
+import { useUltimaRun } from '../api/useUltimaRun'
+import { MapaAndares } from '../components/MapaAndares'
+import { Card, Carregando, Erro, Secao } from '../components/ui'
+import { LegendaRun, NotaDegradada, PainelSemRun } from '../components/estadoRun'
+import { numero, pct } from '../lib/alocacao'
 
 export default function Dashboard() {
-  const salas = useApi(() => api.salas())
-  const equipes = useApi(() => api.equipes())
+  const ref = useReferencia()
+  const ur = useUltimaRun()
   const cenarios = useApi(() => api.cenarios())
   const [carregandoCenario, setCarregandoCenario] = useState<string | null>(null)
 
-  if (salas.erro) return <Erro erro={salas.erro} />
-  if (salas.carregando || equipes.carregando) return <Carregando o="a situação do prédio" />
+  if (ref.erro) return <Erro erro={ref.erro} />
+  if (ref.carregando || !ref.dados) return <Carregando o="a situação do prédio" />
 
-  const listaSalas = salas.dados ?? []
-  const listaEquipes = equipes.dados ?? []
+  const { salas: listaSalas, equipes: listaEquipes } = ref.dados
   const disponiveis = listaSalas.filter((s) => s.disponivel)
   const capacidade = disponiveis.reduce((t, s) => t + s.capacidade, 0)
   const demanda = listaEquipes.reduce((t, e) => t + e.tamanho, 0)
@@ -22,12 +26,14 @@ export default function Dashboard() {
     setCarregandoCenario(nome)
     try {
       await api.carregarCenario(nome)
-      salas.recarregar()
-      equipes.recarregar()
+      ref.recarregar()
+      ur.recarregar()
     } finally {
       setCarregandoCenario(null)
     }
   }
+
+  const est = ur.dados
 
   return (
     <>
@@ -45,39 +51,58 @@ export default function Dashboard() {
         </div>
       </Secao>
 
-      <Secao titulo="Ocupação dos nove andares">
-        <div className="rounded border border-slate-200 bg-white p-4">
-          <div className="flex flex-col gap-1">
-            {[9, 8, 7, 6, 5, 4, 3, 2, 1].map((andar) => {
-              const doAndar = disponiveis.filter((s) => s.andar === andar)
-              const capAndar = doAndar.reduce((t, s) => t + s.capacidade, 0)
-              const largura = capacidade ? (capAndar / Math.max(capacidade / 9, 1)) * 50 : 0
-              return (
-                <div key={andar} className="flex items-center gap-3 text-xs">
-                  <span className="w-8 text-right font-mono text-slate-500">{andar}º</span>
-                  <div
-                    className="h-5 rounded-sm bg-teal-200"
-                    style={{ width: `${Math.min(largura, 100)}%`, minWidth: '2px' }}
-                  />
-                  <span className="tabular text-slate-600">
-                    {doAndar.length} salas · {capAndar} assentos
-                  </span>
-                </div>
-              )
-            })}
-          </div>
-          <p className="mt-4 border-t border-slate-100 pt-3 text-xs text-slate-500">
-            Hoje o mapa mostra <strong>capacidade instalada</strong>. No D4 cada sala vira um bloco
-            colorido pela faixa de ocupação da alocação vigente.
-          </p>
-        </div>
+      <Secao titulo="Indicadores da alocação">
+        {ur.erro ? (
+          <Erro erro={ur.erro} />
+        ) : !est ? (
+          <Carregando o="os indicadores" />
+        ) : est.tipo !== 'ok' ? (
+          <PainelSemRun estado={est} assunto="O painel de indicadores" />
+        ) : (
+          <>
+            {est.degradada && <NotaDegradada run={est.run} />}
+            <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+              <Card titulo="Ocupação média" valor={pct(est.run.metricas.ocupacao_media_pct)} destaque />
+              <Card titulo="Assentos ociosos" valor={numero(est.run.metricas.assentos_ociosos)} />
+              <Card
+                titulo="Equipes sem sala"
+                valor={numero(est.run.metricas.equipes_nao_alocadas)}
+                detalhe={`${numero(est.run.metricas.pessoas_nao_alocadas)} pessoas`}
+              />
+              <Card
+                titulo="Restrições violadas"
+                valor={numero(est.run.metricas.violacoes)}
+                detalhe="validador independente do solver"
+              />
+              <Card titulo="Pessoas alocadas" valor={numero(est.run.metricas.pessoas_alocadas)} />
+              <Card
+                titulo="Salas ocupadas"
+                valor={`${numero(est.run.metricas.salas_ocupadas)} / ${numero(est.run.metricas.salas_total)}`}
+              />
+              <Card titulo="Utilização de salas" valor={pct(est.run.metricas.utilizacao_salas_pct)} />
+              <Card
+                titulo="Equipes alocadas"
+                valor={`${numero(est.run.metricas.equipes_alocadas)} / ${numero(est.run.metricas.equipes_total)}`}
+              />
+            </div>
+            <LegendaRun run={est.run} />
+          </>
+        )}
       </Secao>
 
-      <Secao titulo="Indicadores da alocação">
-        <Pendente
-          dia="D4"
-          o="Ocupação média, assentos ociosos, equipes sem sala e restrições violadas aparecem aqui assim que o motor produzir a primeira alocação. Enquanto não houver execução, não há número a mostrar — e inventar um seria pior que deixar vazio."
-        />
+      <Secao titulo="Ocupação dos nove andares">
+        {ur.erro ? (
+          <Erro erro={ur.erro} />
+        ) : !est ? (
+          <Carregando o="o mapa" />
+        ) : est.tipo !== 'ok' ? (
+          <PainelSemRun estado={est} assunto="O mapa de ocupação" />
+        ) : (
+          <>
+            <MapaAndares alocacoes={est.run.alocacoes} referencia={ref.dados} />
+            <LegendaRun run={est.run} />
+          </>
+        )}
       </Secao>
 
       <Secao titulo="Cenários">

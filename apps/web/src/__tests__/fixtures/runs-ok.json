@@ -1,0 +1,54 @@
+[
+  {
+    "id": 7,
+    "criado_em": "2026-08-28T23:50:28.286837",
+    "usuario": "coordenador-geral",
+    "engine_version": "allocation-engine-v1",
+    "seed": 42,
+    "pesos": {
+      "W_NA": 10000,
+      "W_OC": 1,
+      "W_PR": 50,
+      "W_AP": 20,
+      "W_RS": 200
+    },
+    "hash_entrada": "e3e0ab6d91b885bea813ab1c4c93cb901879fa4605bd6ace082ad09dee472f88",
+    "duracao_ms": 708,
+    "status": "OPTIMAL",
+    "metricas": {
+      "equipes_total": 87,
+      "equipes_alocadas": 84,
+      "equipes_nao_alocadas": 3,
+      "pessoas_alocadas": 3726,
+      "pessoas_nao_alocadas": 187,
+      "assentos_ociosos": 563,
+      "ocupacao_media_pct": 86.9,
+      "salas_total": 103,
+      "salas_ocupadas": 74,
+      "salas_livres": 29,
+      "utilizacao_salas_pct": 71.8,
+      "capacidade_total": 4585,
+      "custo": 70763,
+      "violacoes": 0,
+      "duracao_solver_ms": 653,
+      "duracao_justificativa_ms": 55
+    },
+    "metricas_baseline": {
+      "equipes_total": 87,
+      "equipes_alocadas": 79,
+      "equipes_nao_alocadas": 8,
+      "pessoas_alocadas": 3250,
+      "pessoas_nao_alocadas": 663,
+      "assentos_ociosos": 1215,
+      "ocupacao_media_pct": 72.8,
+      "salas_total": 103,
+      "salas_ocupadas": 66,
+      "salas_livres": 37,
+      "utilizacao_salas_pct": 64.1,
+      "capacidade_total": 4585,
+      "custo": 221965,
+      "violacoes": 0
+    },
+    "erro": null
+  }
+]

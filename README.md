@@ -14,7 +14,7 @@ explicabilidade + observabilidade + governança + intervenção humana.**
 
 ---
 
-## Estado atual — D3 de 7
+## Estado atual — D4 de 7
 
 | | |
 |---|---|
@@ -22,6 +22,7 @@ explicabilidade + observabilidade + governança + intervenção humana.**
 | ✅ | Shell do front consumindo a API, CI com 3 jobs, docs da função objetivo |
 | ✅ | **O motor decide.** `POST /api/runs` resolve, valida e registra a execução |
 | ✅ | **O motor explica.** Cada recomendação carrega a conta que a decidiu |
+| ✅ | **As telas leem a execução.** Tabela equipe → sala, mapa dos 9 andares e comparação antes × depois |
 
 No cenário de referência (108 salas, 87 equipes), o CP-SAT prova otimalidade em
 **~0,63 s**: 84 das 87 equipes alocadas, ocupação média de 86,9%, 563 assentos
@@ -44,18 +45,22 @@ são idênticas com e sem a camada — ela não decide nada, só reconstrói o p
 | D1 | Fundação, contratos e trilhos | ✅ concluído |
 | D2 | Baseline guloso + solver CP-SAT + validador independente | ✅ concluído |
 | **D3** | Explicabilidade e diagnóstico de exceções | ✅ concluído |
+| **D4** | Dashboard, mapa dos 9 andares e tela de comparação | ✅ concluído |
 | — | — | **◀ o desenvolvimento parou aqui** |
-| D4 | Dashboard, mapa dos 9 andares e tela de comparação | ⬜ não iniciado |
 | D5 | Governança, observabilidade e intervenção humana | ⬜ não iniciado |
 | D6 | Testes metamórficos e endurecimento do gate | ⬜ não iniciado |
 | D7 | Demo, evidências e apresentação | ⬜ não iniciado |
 
 D1–D3 verificados contra as especificações em `docs/`: as 7 camadas do motor
 estão implementadas (`restricoes` · `custo` · `baseline` · `solver` · `explainer`
-· `diagnostics` · `validator`) e a suíte fecha em **115 passed, 2 skipped** — os
-dois `skip` são `AC-6` e `MR-5`, ambos marcados para o D6. O que falta do D4 já
-está no código como stub honesto: três `<Pendente dia="D4">` em `Dashboard.tsx`,
-`Comparacao.tsx` e `Alocacao.tsx`. D5–D7 não começaram.
+· `diagnostics` · `validator`) e a suíte do backend fecha em **115 passed, 2
+skipped** — os dois `skip` são `AC-6` e `MR-5`, ambos marcados para o D6. O D4
+entregou as telas de leitura: o `Dashboard` e a `Comparacao` mostram a última
+execução aprovada pelo validador (`useUltimaRun`), e a `Alocacao` desenha a
+execução recém-gerada — as três com a tabela equipe → sala e o mapa dos 9
+andares (`lib/alocacao.ts` faz o join id → nome/andar; o mapa é honesto quanto a
+turno). Sem execução válida, as telas mostram um painel honesto com o caminho
+para gerar uma, nunca zeros. O front fecha em **42 testes**. D5–D7 não começaram.
 
 ---
 
@@ -121,6 +126,7 @@ Documento completo: [`docs/objetivo.md`](docs/objetivo.md).
 | **6 relações metamórficas** — testar sem conhecer a solução ótima | `tests/test_metamorphic.py` |
 | **Explicabilidade** — custo decomposto e alternativas descartadas | `engine/explainer.py` |
 | **Exceções** — equipe, restrição, causa e encaminhamento | `engine/diagnostics.py` |
+| **Leitura da execução** — tabela equipe → sala, mapa dos 9 andares e antes × depois | `apps/web` · `Dashboard` · `Comparacao` · `Alocacao` |
 | **Governança** — `Run` append-only com usuário, hash da entrada e versão do motor | `GET /api/runs` |
 | **Observabilidade** — duração, taxa de alocação, intervenções por execução | `GET /api/metrics` |
 | **Intervenção humana** — aceitar, rejeitar, alterar, reexecutar, tudo registrado | `POST /api/runs/{id}/intervencoes` |

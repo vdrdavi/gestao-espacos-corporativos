@@ -1,0 +1,388 @@
+{
+  "id": 1,
+  "criado_em": "2026-08-28T23:50:28.286837",
+  "usuario": "coordenador-geral",
+  "engine_version": "allocation-engine-v1",
+  "seed": 42,
+  "pesos": {
+    "W_NA": 10000,
+    "W_OC": 1,
+    "W_PR": 50,
+    "W_AP": 20,
+    "W_RS": 200
+  },
+  "hash_entrada": "e3e0ab6d91b885bea813ab1c4c93cb901879fa4605bd6ace082ad09dee472f88",
+  "duracao_ms": 708,
+  "status": "OPTIMAL",
+  "metricas": {
+    "equipes_total": 87,
+    "equipes_alocadas": 84,
+    "equipes_nao_alocadas": 3,
+    "pessoas_alocadas": 3726,
+    "pessoas_nao_alocadas": 187,
+    "assentos_ociosos": 563,
+    "ocupacao_media_pct": 86.9,
+    "salas_total": 103,
+    "salas_ocupadas": 74,
+    "salas_livres": 29,
+    "utilizacao_salas_pct": 71.8,
+    "capacidade_total": 4585,
+    "custo": 70763,
+    "violacoes": 0,
+    "duracao_solver_ms": 653,
+    "duracao_justificativa_ms": 55
+  },
+  "metricas_baseline": {
+    "equipes_total": 87,
+    "equipes_alocadas": 79,
+    "equipes_nao_alocadas": 8,
+    "pessoas_alocadas": 3250,
+    "pessoas_nao_alocadas": 663,
+    "assentos_ociosos": 1215,
+    "ocupacao_media_pct": 72.8,
+    "salas_total": 103,
+    "salas_ocupadas": 66,
+    "salas_livres": 37,
+    "utilizacao_salas_pct": 64.1,
+    "capacidade_total": 4585,
+    "custo": 221965,
+    "violacoes": 0
+  },
+  "erro": null,
+  "snapshot_entrada": {},
+  "alocacoes": [
+    {
+      "id": 1,
+      "equipe_id": 1,
+      "sala_id": 49,
+      "turno": "integral",
+      "custo": 1,
+      "explicacao": {
+        "equipe": {
+          "id": 1,
+          "nome": "Tecnologia Alpha",
+          "tamanho": 19,
+          "turno": "integral",
+          "prioridade": 2
+        },
+        "sala": {
+          "id": 49,
+          "codigo": "501",
+          "andar": 5,
+          "capacidade": 20
+        },
+        "ocupacao_pct": 95.0,
+        "recursos_exigidos": [
+          "videoconferencia"
+        ],
+        "recursos_atendidos": true,
+        "acessibilidade_atendida": null,
+        "andar_preferido": null,
+        "andar_preferido_atendido": null,
+        "andares_permitidos": [],
+        "termos": [
+          {
+            "nome": "ociosidade",
+            "valor": 1,
+            "detalhe": "1 assento ocioso (20 lugares para 19 pessoas)"
+          },
+          {
+            "nome": "andar_preferido",
+            "valor": 0,
+            "detalhe": "a equipe nao declarou andar preferido"
+          },
+          {
+            "nome": "proximidade",
+            "valor": 0,
+            "detalhe": "equipe 2 no mesmo andar"
+          },
+          {
+            "nome": "restricao_flexivel",
+            "valor": 0,
+            "detalhe": "nenhuma restricao flexivel violada"
+          }
+        ],
+        "custo_total": 1,
+        "alternativas_avaliadas": 12,
+        "comparacao": {
+          "tipo": "sem_alternativa",
+          "detalhe": "Nenhuma outra sala compativel estava livre nesta execucao: a escolha era esta sala ou deixar a equipe sem espaco."
+        },
+        "resumo": "Sala 501 recomendada para Tecnologia Alpha. Capacidade 20, equipe de 19 pessoas, ocupacao prevista 95.0%. Entre as 12 salas avaliadas, esta e a que custa 1 na funcao objetivo -- o melhor equilibrio entre capacidade, localizacao e restricoes."
+      },
+      "alternativas": [
+        {
+          "sala_id": 50,
+          "codigo": "502",
+          "andar": 5,
+          "capacidade": 20,
+          "custo": 1,
+          "delta": 0,
+          "disponivel": false,
+          "por_que_nao": "ocupada pela equipe 46 no turno da manha"
+        },
+        {
+          "sala_id": 40,
+          "codigo": "404",
+          "andar": 4,
+          "capacidade": 20,
+          "custo": 51,
+          "delta": 50,
+          "disponivel": false,
+          "por_que_nao": "ocupada pela equipe 85 no turno da tarde"
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "equipe_id": 9,
+      "sala_id": 28,
+      "turno": "manha",
+      "custo": 2,
+      "explicacao": {
+        "equipe": {
+          "id": 9,
+          "nome": "Tecnologia Iota",
+          "tamanho": 14,
+          "turno": "manha",
+          "prioridade": 3
+        },
+        "sala": {
+          "id": 28,
+          "codigo": "304",
+          "andar": 3,
+          "capacidade": 16
+        },
+        "ocupacao_pct": 87.5,
+        "recursos_exigidos": [],
+        "recursos_atendidos": true,
+        "acessibilidade_atendida": null,
+        "andar_preferido": null,
+        "andar_preferido_atendido": null,
+        "andares_permitidos": [],
+        "termos": [
+          {
+            "nome": "ociosidade",
+            "valor": 2,
+            "detalhe": "2 assentos ociosos (16 lugares para 14 pessoas)"
+          },
+          {
+            "nome": "andar_preferido",
+            "valor": 0,
+            "detalhe": "a equipe nao declarou andar preferido"
+          },
+          {
+            "nome": "proximidade",
+            "valor": 0,
+            "detalhe": "a equipe nao tem par de proximidade"
+          },
+          {
+            "nome": "restricao_flexivel",
+            "valor": 0,
+            "detalhe": "nenhuma restricao flexivel violada"
+          }
+        ],
+        "custo_total": 2,
+        "alternativas_avaliadas": 87,
+        "comparacao": {
+          "tipo": "sem_alternativa",
+          "detalhe": "Nenhuma outra sala compativel estava livre nesta execucao: a escolha era esta sala ou deixar a equipe sem espaco."
+        },
+        "resumo": "Sala 304 recomendada para Tecnologia Iota. Capacidade 16, equipe de 14 pessoas, ocupacao prevista 87.5%. Entre as 87 salas avaliadas, esta e a que custa 2 na funcao objetivo -- o melhor equilibrio entre capacidade, localizacao e restricoes."
+      },
+      "alternativas": [
+        {
+          "sala_id": 61,
+          "codigo": "601",
+          "andar": 6,
+          "capacidade": 14,
+          "custo": 0,
+          "delta": -2,
+          "disponivel": false,
+          "por_que_nao": "ocupada pela equipe 21 no turno da manha"
+        },
+        {
+          "sala_id": 97,
+          "codigo": "901",
+          "andar": 9,
+          "capacidade": 14,
+          "custo": 0,
+          "delta": -2,
+          "disponivel": false,
+          "por_que_nao": "ocupada pela equipe 74 no turno da manha"
+        }
+      ]
+    },
+    {
+      "id": 31,
+      "equipe_id": 32,
+      "sala_id": 8,
+      "turno": "manha",
+      "custo": 1,
+      "explicacao": {
+        "equipe": {
+          "id": 32,
+          "nome": "Operacoes Mu",
+          "tamanho": 36,
+          "turno": "manha",
+          "prioridade": 3
+        },
+        "sala": {
+          "id": 8,
+          "codigo": "108",
+          "andar": 1,
+          "capacidade": 37
+        },
+        "ocupacao_pct": 97.3,
+        "recursos_exigidos": [
+          "projetor"
+        ],
+        "recursos_atendidos": true,
+        "acessibilidade_atendida": true,
+        "andar_preferido": null,
+        "andar_preferido_atendido": null,
+        "andares_permitidos": [],
+        "termos": [
+          {
+            "nome": "ociosidade",
+            "valor": 1,
+            "detalhe": "1 assento ocioso (37 lugares para 36 pessoas)"
+          },
+          {
+            "nome": "andar_preferido",
+            "valor": 0,
+            "detalhe": "a equipe nao declarou andar preferido"
+          },
+          {
+            "nome": "proximidade",
+            "valor": 0,
+            "detalhe": "a equipe nao tem par de proximidade"
+          },
+          {
+            "nome": "restricao_flexivel",
+            "valor": 0,
+            "detalhe": "nenhuma restricao flexivel violada"
+          }
+        ],
+        "custo_total": 1,
+        "alternativas_avaliadas": 16,
+        "comparacao": {
+          "tipo": "melhor_local",
+          "detalhe": "Nenhuma alternativa livre custa menos: a melhor descartada e a sala 109, com custo 39 contra 1."
+        },
+        "resumo": "Sala 108 recomendada para Operacoes Mu. Capacidade 37, equipe de 36 pessoas, ocupacao prevista 97.3%. Entre as 16 salas avaliadas, esta e a que custa 1 na funcao objetivo -- o melhor equilibrio entre capacidade, localizacao e restricoes."
+      },
+      "alternativas": [
+        {
+          "sala_id": 20,
+          "codigo": "208",
+          "andar": 2,
+          "capacidade": 47,
+          "custo": 11,
+          "delta": 10,
+          "disponivel": false,
+          "por_que_nao": "ocupada pela equipe 57 no turno da manha"
+        },
+        {
+          "sala_id": 44,
+          "codigo": "408",
+          "andar": 4,
+          "capacidade": 49,
+          "custo": 13,
+          "delta": 12,
+          "disponivel": false,
+          "por_que_nao": "ocupada pela equipe 51 no turno da manha"
+        }
+      ]
+    },
+    {
+      "id": 32,
+      "equipe_id": 33,
+      "sala_id": 8,
+      "turno": "tarde",
+      "custo": 1,
+      "explicacao": {
+        "equipe": {
+          "id": 33,
+          "nome": "Operacoes Nu",
+          "tamanho": 36,
+          "turno": "tarde",
+          "prioridade": 4
+        },
+        "sala": {
+          "id": 8,
+          "codigo": "108",
+          "andar": 1,
+          "capacidade": 37
+        },
+        "ocupacao_pct": 97.3,
+        "recursos_exigidos": [],
+        "recursos_atendidos": true,
+        "acessibilidade_atendida": null,
+        "andar_preferido": null,
+        "andar_preferido_atendido": null,
+        "andares_permitidos": [],
+        "termos": [
+          {
+            "nome": "ociosidade",
+            "valor": 1,
+            "detalhe": "1 assento ocioso (37 lugares para 36 pessoas)"
+          },
+          {
+            "nome": "andar_preferido",
+            "valor": 0,
+            "detalhe": "a equipe nao declarou andar preferido"
+          },
+          {
+            "nome": "proximidade",
+            "valor": 0,
+            "detalhe": "a equipe nao tem par de proximidade"
+          },
+          {
+            "nome": "restricao_flexivel",
+            "valor": 0,
+            "detalhe": "nenhuma restricao flexivel violada"
+          }
+        ],
+        "custo_total": 1,
+        "alternativas_avaliadas": 50,
+        "comparacao": {
+          "tipo": "melhor_local",
+          "detalhe": "Nenhuma alternativa livre custa menos: a melhor descartada e a sala 106, com custo 3 contra 1."
+        },
+        "resumo": "Sala 108 recomendada para Operacoes Nu. Capacidade 37, equipe de 36 pessoas, ocupacao prevista 97.3%. Entre as 50 salas avaliadas, esta e a que custa 1 na funcao objetivo -- o melhor equilibrio entre capacidade, localizacao e restricoes."
+      },
+      "alternativas": [
+        {
+          "sala_id": 6,
+          "codigo": "106",
+          "andar": 1,
+          "capacidade": 39,
+          "custo": 3,
+          "delta": 2,
+          "disponivel": true,
+          "por_que_nao": "3 assentos ociosos (39 lugares para 36 pessoas)"
+        },
+        {
+          "sala_id": 43,
+          "codigo": "407",
+          "andar": 4,
+          "capacidade": 39,
+          "custo": 3,
+          "delta": 2,
+          "disponivel": false,
+          "por_que_nao": "ocupada pela equipe 35 no turno da tarde"
+        }
+      ]
+    }
+  ],
+  "nao_alocadas": [
+    {
+      "id": 1,
+      "equipe_id": 30,
+      "codigo_motivo": "RECURSO_INDISPONIVEL",
+      "causa": "Sem a exigencia de recursos, a equipe (54 pessoas) caberia na sala 409 do 4o andar, que comporta 59 -- e sem tirar nenhuma outra equipe do lugar. E a unica regra que, sozinha, resolve este caso.",
+      "encaminhamento": "Instalar o recurso exigido em uma sala compativel ou revisar se ele e mesmo obrigatorio para esta equipe. Concretamente: rever a exigencia de recursos desta equipe libera a sala 409."
+    }
+  ]
+}

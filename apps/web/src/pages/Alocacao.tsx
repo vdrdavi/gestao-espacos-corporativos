@@ -1,7 +1,10 @@
 import { useState } from 'react'
 import { ApiError, api } from '../api/client'
+import { useReferencia } from '../api/useReferencia'
 import type { Assignment, Explicacao, NaoAlocada, RunDetalhe } from '../api/types'
-import { Card, Pendente, Pill, Secao } from '../components/ui'
+import { MapaAndares } from '../components/MapaAndares'
+import { TabelaAlocacao } from '../components/TabelaAlocacao'
+import { Card, Pill, Secao } from '../components/ui'
 import { usePerfil } from '../perfil'
 
 const MOTIVOS: Record<NaoAlocada['codigo_motivo'], string> = {
@@ -172,6 +175,7 @@ function Justificativa({ alocacoes }: { alocacoes: Assignment[] }) {
 
 export default function Alocacao() {
   const { perfil } = usePerfil()
+  const ref = useReferencia()
   const [executando, setExecutando] = useState(false)
   const [run, setRun] = useState<RunDetalhe | null>(null)
   const [erro, setErro] = useState<string | null>(null)
@@ -278,9 +282,11 @@ export default function Alocacao() {
 
           <div className="mt-6 space-y-4">
             <Justificativa alocacoes={run.alocacoes} />
-            <Pendente
-              dia="D4"
-              o="A tabela equipe → sala e o mapa de ocupação dos nove andares. Os dados desta execução já estão no banco; falta a tela que os desenha."
+            <TabelaAlocacao alocacoes={run.alocacoes} referencia={ref.dados} />
+            <MapaAndares
+              alocacoes={run.alocacoes}
+              referencia={ref.dados}
+              titulo="Ocupação dos nove andares"
             />
           </div>
         </div>
